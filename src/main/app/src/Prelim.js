@@ -57,7 +57,7 @@ class Prelim extends Component {
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
                 <td>{group.address}</td>
                 <td>{group.score}</td>
-                <td>
+                <td style={{width: '40%'}}>
                     <InputGroup>
                         <Input placeholder="and..." />
                         <InputGroupAddon addonType="append"><Button color="secondary">I'm a button</Button></InputGroupAddon>
