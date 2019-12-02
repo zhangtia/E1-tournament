@@ -71,7 +71,7 @@ class GroupList extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="primary" tag={Link} to={"/groups/prelim"}>Start Preliminary</Button>
+                        <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
                         <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
                         <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
