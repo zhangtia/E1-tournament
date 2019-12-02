@@ -47,17 +47,7 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form onSubmit={this.update}>
-                        <FormGroup>
-                            <Label for="score">Score</Label>
-                            <Input type="text" name="score" id="score" value={group.score || ''}
-                                onChange={this.handleChange} autoComplete="name" />
-                        </FormGroup>
-    
-                        <FormGroup>
-                            <Button color="primary" type="submit">Save</Button>{' '}
-                        </FormGroup>
-                    </Form>
+
                 </td>
             </tr>
         });
