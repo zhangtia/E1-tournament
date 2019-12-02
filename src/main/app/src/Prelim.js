@@ -50,7 +50,7 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
                     <InputGroup>
-                    <Input type="double" name="score" id="score" value={score.address || ''}/>
+                    <Input type="double" name="score" id="score" value={group.score || ''}/>
                         <InputGroupAddon addonType="append"><Button color="secondary" onClick={() => this.score}>Update Score</Button></InputGroupAddon>
                     </InputGroup>
                 </td>
