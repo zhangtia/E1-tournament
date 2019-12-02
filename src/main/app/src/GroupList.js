@@ -41,8 +41,8 @@ class GroupList extends Component {
             }
         });
         fetch('api/groups')
-            .then(response => response.json())
-            .then(data => this.setState({ groups: data, isLoading: false }));
+        .then(response => response.json())
+        .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
     render() {
