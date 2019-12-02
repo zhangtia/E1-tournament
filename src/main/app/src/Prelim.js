@@ -57,10 +57,10 @@ class Prelim extends Component {
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
                 <td>{group.address}</td>
                 <td>{group.score}</td>
-                <td style={{width: '40%'}}>
+                <td>
                     <InputGroup>
-                        <Input placeholder="and..." />
-                        <InputGroupAddon addonType="append"><Button color="secondary">I'm a button</Button></InputGroupAddon>
+                        <Input placeholder="Prelim Score" />
+                        <InputGroupAddon addonType="append"><Button color="secondary">Update Score</Button></InputGroupAddon>
                     </InputGroup>                
                 </td>
             </tr>
@@ -72,8 +72,6 @@ class Prelim extends Component {
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>THIS IS PRELIM IT WORKED</Button>
-                        <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
-                        <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
                     <h3>Competitors</h3>
                     <Table className="mt-4">
@@ -82,7 +80,7 @@ class Prelim extends Component {
                                 <th width="20%">Name</th>
                                 <th width="20%">Crew</th>
                                 <th>Score</th>
-                                <th width="10%">Actions</th>
+                                <th width="30%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
