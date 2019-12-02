@@ -21,10 +21,7 @@ public class Group {
     @NonNull
     private String name;
     private String address;
-    private String city;
-    private String stateOrProvince;
-    private String country;
-    private String postalCode;
+    private double score;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
