@@ -19,30 +19,17 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async remove(id) {
-        await fetch(`/api/group/${id}`, {
-            method: 'DELETE',
+    async update(id) {
+        await fetch(`/api/group/${item.id}`, {
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }
-        }).then(() => {
-            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
-            this.setState({ groups: updatedGroups });
+            },
+            body: JSON.stringify(item),
         });
-    }
 
-    async removeall() {
-        await fetch(`/api/group`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-        fetch('api/groups')
-            .then(response => response.json())
-            .then(data => this.setState({ groups: data, isLoading: false }));
+        this.props.history.push('/groups');
     }
 
     render() {
@@ -58,10 +45,17 @@ class GroupList extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Delete</Button>
-                    </ButtonGroup>
+                    <Form onSubmit={this.update(group.id)}>
+                        <FormGroup>
+                            <Label for="score">Score</Label>
+                            <Input type="text" name="score" id="score" value={item.score || ''}
+                                onChange={this.handleChange} autoComplete="name" />
+                        </FormGroup>
+    
+                        <FormGroup>
+                            <Button color="primary" type="submit">Save</Button>{' '}
+                        </FormGroup>
+                    </Form>
                 </td>
             </tr>
         });
@@ -71,7 +65,6 @@ class GroupList extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="primary" tag={Link} to={"/groups/prelim"}>Start Preliminary</Button>
                         <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
                         <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
