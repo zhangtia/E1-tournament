@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, InputGroup, Table, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import FormControl from 'react-bootstrap/FormControl'
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
@@ -60,11 +59,7 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
                     <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="score"
-                            aria-label="score"
-                            aria-describedby="basic-addon2"
-                        />
+                        <Input type="text" name="score" id="score" value={group.score || ''}/>
                         <InputGroup.Append>
                             <Button variant="outline-secondary">Button</Button>
                         </InputGroup.Append>
