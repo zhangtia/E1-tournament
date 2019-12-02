@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, Table, Container, Form, FormGroup, Input, Label, Row, Col } from 'reactstrap';
+import { Button, InputGroup, Table, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
@@ -58,16 +58,16 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form>
-                        <Row>
-                            <Col>
-                                <Form.Control placeholder="Prelim Score" />
-                            </Col>
-                            <Col>
-                                <Button variant="primary" type="submit">Update Score</Button>
-                            </Col>
-                        </Row>
-                    </Form>
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="score"
+                            aria-label="score"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-secondary">Button</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
                 </td>
             </tr>
         });
@@ -78,8 +78,8 @@ class Prelim extends Component {
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>THIS IS PRELIM IT WORKED</Button>
-                        <Button color="danger" onClick={() => this.removeall()}>REMOVE THE</Button>
-                        <Button color="success" tag={Link} to="/groups/new">SE BUTTONS</Button>
+                        <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
+                        <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
                     <h3>Competitors</h3>
                     <Table className="mt-4">
