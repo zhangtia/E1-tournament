@@ -39,6 +39,9 @@ class GroupList extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
+        }).then(() => {
+            let updatedGroups = [...this.state.groups];
+            this.setState({ groups: updatedGroups });
         });
     }
 
