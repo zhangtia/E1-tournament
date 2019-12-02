@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import { Button, Table, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,9 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async update(id) {
+    async update(event) {
+        event.preventDefault();
+        const { item } = this.state;
         await fetch(`/api/group/${item.id}`, {
             method: 'PUT',
             headers: {
@@ -45,10 +47,10 @@ class GroupList extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form onSubmit={this.update(group.id)}>
+                    <Form onSubmit={this.update}>
                         <FormGroup>
                             <Label for="score">Score</Label>
-                            <Input type="text" name="score" id="score" value={item.score || ''}
+                            <Input type="text" name="score" id="score" value={group.score || ''}
                                 onChange={this.handleChange} autoComplete="name" />
                         </FormGroup>
     
