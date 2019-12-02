@@ -3,7 +3,7 @@ import { Button, Table, Container, Form, FormGroup, Input, Label } from 'reactst
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
-class GroupList extends Component {
+class Prelim extends Component {
 
     constructor(props) {
         super(props);
@@ -90,4 +90,4 @@ class GroupList extends Component {
     }
 }
 
-export default GroupList;
+export default Prelim;
