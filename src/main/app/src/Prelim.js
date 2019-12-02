@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, InputGroup, Table, Container, Form, FormControl, Input, Label } from 'reactstrap';
+import { Button, InputGroup, Table, Container, Form, Form, Input, Label } from 'reactstrap';
+import FormControl from 'react-bootstrap/FormControl'
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
