@@ -59,8 +59,7 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
 
-                            <Button variant="outline-secondary">Button</Button>
-
+                    <Input type="text" name="name" id="name" value={group.name || ''} />
                 </td>
             </tr>
         });
