@@ -76,12 +76,12 @@ class GroupEdit extends Component {
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="name">Name</Label>
-            <Input type="text" name="name" id="name" value={item.name || ''}
+            <Input type="text" name="name" id="messed" value={item.name || ''}
                    onChange={this.handleChange} autoComplete="name"/>
           </FormGroup>
           <FormGroup>
             <Label for="address">Crew</Label>
-            <Input type="text" name="address" id="address" value={item.address || ''}
+            <Input type="text" name="jabnveaovn" id="address" value={item.address || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           
