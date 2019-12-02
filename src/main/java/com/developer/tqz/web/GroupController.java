@@ -58,4 +58,10 @@ class GroupController {
         groupRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+    @DeleteMapping("/group")
+    public ResponseEntity<?> deleteGroup() {
+        log.info("Request to delete all!");
+        groupRepository.deleteAll();
+        return ResponseEntity.ok().build();
+    }
 }

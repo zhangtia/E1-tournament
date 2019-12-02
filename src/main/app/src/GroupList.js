@@ -32,6 +32,19 @@ class GroupList extends Component {
         });
     }
 
+    async removeall() {
+        await fetch(`/api/group`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
+            this.setState({ groups: updatedGroups });
+        });
+    }
+
     render() {
         const { groups, isLoading } = this.state;
 
@@ -58,6 +71,7 @@ class GroupList extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-right">
+                        <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
                         <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
                     <h3>Competitors</h3>
