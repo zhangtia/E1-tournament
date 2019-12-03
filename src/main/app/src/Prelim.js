@@ -48,7 +48,7 @@ class Prelim extends Component {
     async udscore(id) {
         const group = await (await fetch(`/api/group/${id}`)).json();
         const { item } = group;
-        await fetch(`/api/group/${item.id}`, {
+        await fetch(`/api/group/${id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
