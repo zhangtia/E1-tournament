@@ -45,9 +45,9 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async udscore(event) {
-        event.preventDefault();
-        const { item } = this.state;
+    async udscore(id) {
+        const group = await (await fetch(`/api/group/${id}`)).json();
+        const { item } = group;
         await fetch(`/api/group/${item.id}`, {
             method: 'PUT',
             headers: {
@@ -73,7 +73,7 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form inline onSubmit={this.udscore}>
+                    <Form inline onSubmit={this.udscore(group.id)}>
                         <FormGroup>
                             <Label for="score">-</Label>
                             <Input type="number" name="score" id="score" />
