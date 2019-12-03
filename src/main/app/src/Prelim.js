@@ -45,6 +45,21 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
+    async udscore(event) {
+        event.preventDefault();
+        const { item } = this.state;
+        await fetch(`/api/group/${item.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item),
+        });
+
+        this.props.history.push('/groups');
+    }
+
     render() {
         const { groups, isLoading } = this.state;
 
@@ -58,11 +73,11 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form inline>
+                    <Form inline onSubmit={this.udscore}>
                         <FormGroup>
-                            <Label for="score">Score</Label>
+                            <Label for="score">-</Label>
                             <Input type="number" name="score" id="score" />
-                        </FormGroup>      <Button>Submit</Button>
+                        </FormGroup>      <Button type="submit">Update Score</Button>
                     </Form>
                 </td>
             </tr>
