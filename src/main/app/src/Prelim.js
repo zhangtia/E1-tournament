@@ -50,8 +50,8 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
                     <InputGroup>
-                    <Input placeholder={group.score || "Prelim Score"}/>
-                        <InputGroupAddon addonType="append"><Button color="secondary" onClick={() => this.score}>Update Score</Button></InputGroupAddon>
+                    <Input placeholder="Prelim Score"/>
+                        <InputGroupAddon addonType="append"><Button color="secondary">Update Score</Button></InputGroupAddon>
                     </InputGroup>
                 </td>
             </tr>
