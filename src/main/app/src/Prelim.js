@@ -19,18 +19,27 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async score(event) {
-        event.preventDefault();
-        const { item } = this.state;
-        await fetch(`/api/group/${item.id}`, {
-            method: 'PUT',
+    async remove(id) {
+        await fetch(`/api/group/${id}`, {
+            method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item),
+            }
+        }).then(() => {
+            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
+            this.setState({ groups: updatedGroups });
         });
-        this.props.history.push('/groups');
+    }
+
+    async removeall() {
+        await fetch(`/api/group`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
         fetch('api/groups')
             .then(response => response.json())
             .then(data => this.setState({ groups: data, isLoading: false }));
@@ -50,7 +59,7 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
                     <InputGroup>
-                    <Input placeholder="Prelim Score"/>
+                        <Input placeholder="Prelim Score" />
                         <InputGroupAddon addonType="append"><Button color="secondary">Update Score</Button></InputGroupAddon>
                     </InputGroup>
                 </td>
