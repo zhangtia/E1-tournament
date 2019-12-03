@@ -58,10 +58,12 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <InputGroup>
-                        <Input type="number" value={group.score} />
-                        <InputGroupAddon addonType="append"><Button color="secondary">Update Score</Button></InputGroupAddon>
-                    </InputGroup>
+                    <Form>
+                        <FormGroup>
+                            <Label for="score">Score</Label>
+                            <Input type="number" name="score" id="score" />
+                        </FormGroup>      <Button>Submit</Button>
+                    </Form>
                 </td>
             </tr>
         });
