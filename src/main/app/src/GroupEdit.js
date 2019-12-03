@@ -84,6 +84,11 @@ class GroupEdit extends Component {
             <Input type="text" name="address" id="address" value={item.address || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
+          <FormGroup>
+            <Label for="score">Crew</Label>
+            <Input type="number" name="score" id="score"
+                   onChange={this.handleChange} autoComplete="score"/>
+          </FormGroup>
           
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
