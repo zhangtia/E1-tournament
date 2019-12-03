@@ -58,7 +58,7 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form>
+                    <Form inline>
                         <FormGroup>
                             <Label for="score">Score</Label>
                             <Input type="number" name="score" id="score" />
