@@ -42,10 +42,10 @@ class PrelimEdit extends Component {
   async handleSubmit(event) {
     event.preventDefault();
     const { item } = this.state;
-    alert("ITEM - " + item);
-    alert("ITEM SCORE - " + item.score);
-    alert("STATE - " + this.state.item);
-    alert("STATE SCORE - " + this.state.item.score);
+    alert("judge 1 - " + this.state.item.score1);
+    alert("judge 2 - " + this.state.item.score2);
+    alert("judge 3 - " + this.state.item.score3);
+    //alert("STATE SCORE - " + this.state.item.score);
     if (item.id === 0) {
         await fetch('/api/group', {
             method: 'POST',
@@ -84,11 +84,20 @@ class PrelimEdit extends Component {
                    onChange={this.handleChange} autoComplete="name"/>
           </FormGroup>
           <FormGroup>
-            <Label for="address">Score</Label>
-            <Input type="number" name="score" id="score" value={item.score || ''}
+            <Label for="address">Judge 1</Label>
+            <Input type="number" name="score1" id="score" value={item.score || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
-          
+          <FormGroup>
+            <Label for="address">Judge 2</Label>
+            <Input type="number" name="score" id="score2" value={item.score || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="address">Judge 3</Label>
+            <Input type="number" name="score3" id="score3" value={item.score || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/prelim">Cancel</Button>
