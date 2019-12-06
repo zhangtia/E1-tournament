@@ -42,6 +42,10 @@ class PrelimEdit extends Component {
   async handleSubmit(event) {
     event.preventDefault();
     const { item } = this.state;
+    alert("ITEM - " + item);
+    alert("ITEM SCORE - " + item.score);
+    alert("STATE - " + this.state);
+    alert("STATE SCORE - " + this.state.score);
     if (item.id === 0) {
         await fetch('/api/group', {
             method: 'POST',
