@@ -31,7 +31,7 @@ class Initializer implements CommandLineRunner {
                 .description("Keeping this for reference")
                 .date(Instant.parse("2018-12-12T18:00:00.000Z"))
                 .build();
-        djug.setEvents(Collections.singleton(e));
+        //djug.setEvents(Collections.singleton(e));
         djug.setScore(9.7);
         repository.save(djug);
 

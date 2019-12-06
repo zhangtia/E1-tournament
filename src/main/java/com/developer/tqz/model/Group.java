@@ -6,7 +6,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -22,9 +21,4 @@ public class Group {
     private String name;
     private String address;
     private double score;
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    private User user;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    private Set<Event> events;
 }
