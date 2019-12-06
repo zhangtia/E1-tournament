@@ -17,8 +17,6 @@ class GroupList extends Component {
         fetch('api/groups')
             .then(response => response.json())
             .then(data => this.setState({ groups: data, isLoading: false }));
-
-        alert(groups);
     }
 
     async remove(id) {
@@ -67,6 +65,8 @@ class GroupList extends Component {
                 </td>
             </tr>
         });
+
+        alert(groups);
 
         return (
             <div>
