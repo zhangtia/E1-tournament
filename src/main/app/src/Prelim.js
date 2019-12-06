@@ -46,7 +46,7 @@ class Prelim extends Component {
     }
 
     custom_comp(a,b) {
-        return a.score - b.score;
+        return b.score - a.score;
     }
 
     render() {
