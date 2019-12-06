@@ -72,6 +72,9 @@ class Prelim extends Component {
             </tr>
         });
 
+        alert("Current first place is " + groups[1].name + " with " + groups[1].name + " points in prelims!");
+
+
         return (
             <div>
                 <AppNavbar />

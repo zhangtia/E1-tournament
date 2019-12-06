@@ -66,8 +66,7 @@ class GroupList extends Component {
                 </td>
             </tr>
         });
-        alert(groups[1]);
-
+        
         return (
             <div>
                 <AppNavbar />
