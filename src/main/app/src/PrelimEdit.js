@@ -44,8 +44,8 @@ class PrelimEdit extends Component {
     const { item } = this.state;
     alert("ITEM - " + item);
     alert("ITEM SCORE - " + item.score);
-    alert("STATE - " + this.state);
-    alert("STATE SCORE - " + this.state.score);
+    alert("STATE - " + this.state.item);
+    alert("STATE SCORE - " + this.state.item.score);
     if (item.id === 0) {
         await fetch('/api/group', {
             method: 'POST',
@@ -91,7 +91,7 @@ class PrelimEdit extends Component {
           
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
-            <Button color="secondary" tag={Link} to="/groups">Cancel</Button>
+            <Button color="secondary" tag={Link} to="/prelim">Cancel</Button>
           </FormGroup>
         </Form>
       </Container>

@@ -71,7 +71,7 @@ class Prelim extends Component {
             </tr>
         });
 
-        alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
+        //alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
 
 
         return (
