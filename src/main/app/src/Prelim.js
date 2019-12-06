@@ -59,12 +59,10 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <Form inline onSubmit={this.udscore(group.id)}>
-                        <FormGroup>
-                            <Label for="score">-</Label>
-                            <Input type="number" name="score" id="score" />
-                        </FormGroup>      <Button type="submit">Update Score</Button>
-                    </Form>
+                    <ButtonGroup>
+                        <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
+                        <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Delete</Button>
+                    </ButtonGroup>
                 </td>
             </tr>
         });
