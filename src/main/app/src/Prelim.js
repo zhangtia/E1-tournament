@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, InputGroup, Table, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, InputGroup, Table, Container, Form, ButtonGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
@@ -45,6 +45,9 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
+    custom_comp(a,b) {
+        return a.score - b.score;
+    }
 
     render() {
         const { groups, isLoading } = this.state;
@@ -52,6 +55,8 @@ class Prelim extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
+
+        groups.sort(this.custom_comp);
 
         const groupList = groups.map(group => {
             return <tr key={group.id}>

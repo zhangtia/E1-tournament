@@ -40,9 +40,6 @@ class Initializer implements CommandLineRunner {
         Group sec1 = repository.findByName("Victor");
         sec1.setScore(9);
         repository.save(sec1);
-        Group sec2 = repository.findByName("Issei");
-        sec2.setScore(0);
-        repository.save(sec2);
 
         repository.findAll().forEach(System.out::println);
     }

@@ -45,9 +45,6 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    custom_comp(a,b) {
-        return a.score - b.score;
-    }
 
     render() {
         const { groups, isLoading } = this.state;
@@ -55,7 +52,6 @@ class GroupList extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
-groups.sort(this.custom_comp);
 
         const groupList = groups.map(group => {
             return <tr key={group.id}>
