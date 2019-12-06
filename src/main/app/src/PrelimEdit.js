@@ -62,7 +62,7 @@ class PrelimEdit extends Component {
             body: JSON.stringify(item),
         });
     }
-    this.props.history.push('/groups');
+    this.props.history.push('/prelim');
 }
 
   render() {
