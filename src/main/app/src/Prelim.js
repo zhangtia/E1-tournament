@@ -19,7 +19,33 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    custom_comp(a, b) {
+    async remove(id) {
+        await fetch(`/api/group/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
+            this.setState({ groups: updatedGroups });
+        });
+    }
+
+    async removeall() {
+        await fetch(`/api/group`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        fetch('api/groups')
+            .then(response => response.json())
+            .then(data => this.setState({ groups: data, isLoading: false }));
+    }
+
+    custom_comp(a,b) {
         return b.score - a.score;
     }
 
@@ -39,13 +65,13 @@ class Prelim extends Component {
                 <td>{group.score}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/prelim/" + group.id}>Edit</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/prelim/" + group.id}>Update Score</Button>
                     </ButtonGroup>
                 </td>
             </tr>
         });
 
-        //alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
+        alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
 
 
         return (
