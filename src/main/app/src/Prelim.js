@@ -19,33 +19,7 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async remove(id) {
-        await fetch(`/api/group/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then(() => {
-            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
-            this.setState({ groups: updatedGroups });
-        });
-    }
-
-    async removeall() {
-        await fetch(`/api/group`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-        fetch('api/groups')
-            .then(response => response.json())
-            .then(data => this.setState({ groups: data, isLoading: false }));
-    }
-
-    custom_comp(a,b) {
+    custom_comp(a, b) {
         return b.score - a.score;
     }
 
@@ -64,15 +38,13 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-                    <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Delete</Button>
-                    </ButtonGroup>
+
+                    <Button size="sm" color="primary" tag={Link} to={"/prelim/" + group.id}>Edit</Button>
                 </td>
             </tr>
         });
 
-        alert("Current first place is " + groups[1].name + " with " + groups[1].name + " points in prelims!");
+        alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
 
 
         return (

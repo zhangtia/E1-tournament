@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GroupList from './GroupList';
 import GroupEdit from './GroupEdit';
 import Prelim from './Prelim.js';
+import PrelimEdit from './PrelimEdit.js';
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
           <Route path='/' exact={true} component={Home}/>
           <Route path='/groups' exact={true} component={GroupList}/>
           <Route path='/groups/:id' component={GroupEdit}/>
-          <Route path='/prelim' component={Prelim}/>          
+          <Route path='/prelim' exact={true} component={Prelim}/>
+          <Route path='/prelim/:id' component={PrelimEdit}/>
         </Switch>
       </Router>
     )
