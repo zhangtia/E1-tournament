@@ -46,7 +46,7 @@ class GroupList extends Component {
     }
 
     custom_comp(a,b) {
-        return b.score - a.score;
+        return a.score - b.score;
     }
 
     render() {
