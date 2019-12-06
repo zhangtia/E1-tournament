@@ -45,20 +45,6 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    async udscore(id) {
-        const group = await (await fetch(`/api/group/${id}`)).json();
-        const { item } = group;
-        await fetch(`/api/group/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item),
-        });
-
-        this.props.history.push('/groups');
-    }
 
     render() {
         const { groups, isLoading } = this.state;
