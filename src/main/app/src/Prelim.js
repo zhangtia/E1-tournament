@@ -38,13 +38,14 @@ class Prelim extends Component {
                 <td>{group.address}</td>
                 <td>{group.score}</td>
                 <td>
-
-                    <Button size="sm" color="primary" tag={Link} to={"/prelim/" + group.id}>Edit</Button>
+                    <ButtonGroup>
+                        <Button size="sm" color="primary" tag={Link} to={"/prelim/" + group.id}>Edit</Button>
+                    </ButtonGroup>
                 </td>
             </tr>
         });
 
-        alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
+        //alert("Current first place is " + groups[0].name + " with " + groups[0].score + " points in prelims!");
 
 
         return (
