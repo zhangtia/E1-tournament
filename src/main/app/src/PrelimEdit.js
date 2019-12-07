@@ -8,7 +8,7 @@ class PrelimEdit extends Component {
   emptyItem = {
     name: '',
     address: '',
-    city: '',
+    score: 0,
     score3: 0,
     score2: 0,
     score1: 0
