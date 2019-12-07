@@ -9,9 +9,9 @@ class PrelimEdit extends Component {
     name: '',
     address: '',
     city: '',
-    stateOrProvince: '',
-    country: '',
-    postalCode: ''
+    score3: '',
+    score2: '',
+    score1: ''
   };
 
   constructor(props) {
@@ -85,11 +85,11 @@ class PrelimEdit extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 1</Label>
-            <Input type="number" name="score1" id="score" value={item.score || ''}/>
+            <Input type="number" name="score1" id="score1" value={item.score || ''}/>
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 2</Label>
-            <Input type="number" name="score" id="score2" value={item.score || ''}/>
+            <Input type="number" name="score2" id="score2" value={item.score || ''}/>
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 3</Label>
