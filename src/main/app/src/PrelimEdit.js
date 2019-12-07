@@ -41,16 +41,9 @@ class PrelimEdit extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    //alert("judge 1 - " + this.state.item.score1);
-    //alert("judge 2 - " + this.state.item.score2);
-    //alert("judge 3 - " + this.state.item.score3);
-    var one = this.state.item.score1;
-    var two = this.state.item.score2;
-    var thr = this.state.item.score3;
-    var zzz = (+one + +two + +thr)/3;
-    this.state.item.score = zzz;
-    alert("SCORE - " + this.state.item.score);
-    alert(+this.state.item.score1 + +this.state.item.score2 + +this.state.item.score3);
+    this.state.item.score = (+this.state.item.score1 + +this.state.item.score2 + +this.state.item.score3)/3;
+    //alert("SCORE - " + this.state.item.score);
+    //alert(+this.state.item.score1 + +this.state.item.score2 + +this.state.item.score3);
     const { item } = this.state;
     if (item.id === 0) {
         await fetch('/api/group', {
@@ -77,18 +70,13 @@ class PrelimEdit extends Component {
 
   render() {
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Edit Competitor' : 'Add Competitor'}</h2>;
+    const title = <h2>Bboy {item.name}'s preliminary score</h2>;
 
     return <div>
       <AppNavbar/>
       <Container>
         {title}
         <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Label for="name">Name</Label>
-            <Input type="text" name="name" id="name" value={item.name || ''}
-                   onChange={this.handleChange} autoComplete="name"/>
-          </FormGroup>
           <FormGroup>
             <Label for="address">Judge 1</Label>
             <Input type="number" name="score1" id="score1" onChange={this.handleChange}/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import { Button, ButtonGroup, Container, Table, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
@@ -66,14 +66,21 @@ class GroupList extends Component {
                 </td>
             </tr>
         });
-        
+
         return (
             <div>
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
-                        <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
+                        <Button color="danger" id="delall">Delete All</Button>
+                        <UncontrolledPopover trigger="legacy" placement="bottom" target="delall">
+                            <PopoverHeader>CONFIRM DELETE ALL</PopoverHeader>
+                            <PopoverBody>
+                                This action will delete all competitor data, proceed?
+                                <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>
                         <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
                     </div>
                     <h3>Competitors</h3>
