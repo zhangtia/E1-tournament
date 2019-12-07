@@ -58,17 +58,17 @@ class Prelim extends Component {
 
         //groups.sort(this.custom_comp);
 
-        if (groups.length < 32) {
+        /*if (groups.length < 32) {
             return (
                 <div>
                     <AppNavbar />
                     <Container fluid>
                         <h3>Please have at least 32 competitors to begin!</h3>
-                        <Button color="Primary" tag={Link} to="/groups">Return</Button>
+                        <Button color="primary" tag={Link} to="/groups">Return</Button>
                     </Container>
                 </div>
             );
-        }
+        }*/
 
         const groupList = groups.map(group => {
             return <tr key={group.id}>
