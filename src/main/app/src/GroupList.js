@@ -52,7 +52,7 @@ class GroupList extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
-
+alert(groups.size);
         const groupList = groups.map(group => {
             return <tr key={group.id}>
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
@@ -60,8 +60,15 @@ class GroupList extends Component {
                 <td>{group.score}</td>
                 <td>
                     <ButtonGroup>
+                        <Button size="sm" color="danger" id="delone">Delete</Button>
+                        <UncontrolledPopover trigger="legacy" placement="left" target="delone">
+                            <PopoverHeader>CONFIRM DELETE</PopoverHeader>
+                            <PopoverBody>
+                                <p>Delete competitor data, proceed?</p>
+                                <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Confirm Delete</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>
                         <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -77,8 +84,8 @@ class GroupList extends Component {
                         <UncontrolledPopover trigger="legacy" placement="bottom" target="delall">
                             <PopoverHeader>CONFIRM DELETE ALL</PopoverHeader>
                             <PopoverBody>
-                                This action will delete all competitor data, proceed?
-                                <Button color="danger" onClick={() => this.removeall()}>Delete All</Button>
+                                <p>This action will delete all competitor data, proceed?</p>
+                                <Button color="danger" onClick={() => this.removeall()}>Confirm Delete All</Button>
                             </PopoverBody>
                         </UncontrolledPopover>
                         <Button color="success" tag={Link} to="/groups/new">Add Competitor</Button>
