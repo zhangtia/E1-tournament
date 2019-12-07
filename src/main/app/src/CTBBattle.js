@@ -31,12 +31,7 @@ class CTBBattle extends Component {
                         <Col>12</Col>
                         <Col>13</Col>
                         <Col>14</Col>
-                        <Col>15</Col>
-                        <Col>16</Col>
-                        <Col>17</Col>
-                        <Col>18</Col>
-                        <Col>19</Col>
-                        <Col>20</Col>
+                        <Col><div style={{ backgroundColor: this.state.color }} onClick={this.onChange}><p>15</p></div></Col>
                     </Row>
                     <Row>
                         <Col>1</Col>
@@ -60,6 +55,7 @@ class CTBBattle extends Component {
                         <Col>19</Col>
                         <Col>20</Col>
                     </Row>
+                    <Row><div style={{ backgroundColor: this.state.color }}>please change</div></Row>
                 </Container>
             </div>
         )
