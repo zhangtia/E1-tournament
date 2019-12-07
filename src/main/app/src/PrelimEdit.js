@@ -85,15 +85,15 @@ class PrelimEdit extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 1</Label>
-            <Input type="number" name="score1" id="score1" value={item.score1 || ''}/>
+            <Input type="number" name="score1" id="score1" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 2</Label>
-            <Input type="number" name="score2" id="score2" value={item.score2 || ''}/>
+            <Input type="number" name="score2" id="score2" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="address">Judge 3</Label>
-            <Input type="number" name="score3" id="score3" value={item.score3 || ''}/>
+            <Input type="number" name="score3" id="score3" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
