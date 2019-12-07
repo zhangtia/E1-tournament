@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
 class CTBBattle extends Component {
+
+changeclr(x) {
+    x.style.background="red";
+}
 
     render() {
         return (
@@ -10,7 +14,7 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <Row>
-                        <Col>1</Col>
+                        <Col><div style={{ background: 'green' }}><Button onClick="changeclr(this)">RED</Button></div></Col>
                         <Col>2</Col>
                         <Col>3</Col>
                         <Col>4</Col>
