@@ -21,4 +21,7 @@ public class Group {
     private String name;
     private String address;
     private double score;
+    private double score1;
+    private double score2;
+    private double score3;
 }
