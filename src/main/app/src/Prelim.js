@@ -45,7 +45,7 @@ class Prelim extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
-    custom_comp(a,b) {
+    custom_comp(a, b) {
         return b.score - a.score;
     }
 
@@ -56,7 +56,13 @@ class Prelim extends Component {
             return <p>Loading...</p>;
         }
 
-        groups.sort(this.custom_comp);
+        //groups.sort(this.custom_comp);
+
+        if (groups.length < 32) {
+            return (
+                alert("Please have 32 competitors to continue!")
+            );                  
+        }
 
         const groupList = groups.map(group => {
             return <tr key={group.id}>

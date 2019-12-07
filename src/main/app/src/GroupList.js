@@ -52,7 +52,7 @@ class GroupList extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
-alert(groups.size);
+alert(groups.length);
         const groupList = groups.map(group => {
             return <tr key={group.id}>
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
