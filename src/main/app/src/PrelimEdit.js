@@ -9,9 +9,9 @@ class PrelimEdit extends Component {
     name: '',
     address: '',
     city: '',
-    score3: '',
-    score2: '',
-    score1: ''
+    score3: 0,
+    score2: 0,
+    score1: 0
   };
 
   constructor(props) {
