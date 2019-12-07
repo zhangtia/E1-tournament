@@ -4,9 +4,12 @@ import AppNavbar from './AppNavbar';
 
 class CTBBattle extends Component {
 
-changeclr(x) {
-    x.style.background="red";
-}
+    state = {
+        color: 'red'
+    }
+    onChange = () => {
+        this.setState({ color: 'green' });
+    }
 
     render() {
         return (
@@ -14,7 +17,7 @@ changeclr(x) {
                 <AppNavbar />
                 <Container fluid>
                     <Row>
-                        <Col><div style={{ background: 'green' }}><Button onClick="changeclr(this)">RED</Button></div></Col>
+                        <Col><div style={{ backgroundColor: this.state.color }} onClick={this.onChange}><p>1</p></div></Col>
                         <Col>2</Col>
                         <Col>3</Col>
                         <Col>4</Col>
