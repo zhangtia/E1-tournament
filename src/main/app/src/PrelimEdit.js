@@ -44,7 +44,10 @@ class PrelimEdit extends Component {
     //alert("judge 1 - " + this.state.item.score1);
     //alert("judge 2 - " + this.state.item.score2);
     //alert("judge 3 - " + this.state.item.score3);
-    this.state.item.score = (this.state.item.score1 + this.state.item.score2 + this.state.item.score3)/3;
+    var one = this.state.item.score1;
+    var two = this.state.item.score2;
+    var thr = this.state.item.score3;
+    this.state.item.score = (one + two + thr)/3;
     alert("SCORE - " + this.state.item.score);
     const { item } = this.state;
     if (item.id === 0) {
