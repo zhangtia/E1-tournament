@@ -59,9 +59,11 @@ class Prelim extends Component {
         //groups.sort(this.custom_comp);
 
         if (groups.length < 32) {
+            alert("Please have 32 competitors to continue!")
+            window.location.href = "/groups";
             return (
-                alert("Please have 32 competitors to continue!")
-            );                  
+            <div>hi</div>
+                );                  
         }
 
         const groupList = groups.map(group => {
