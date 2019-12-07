@@ -41,11 +41,12 @@ class PrelimEdit extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    //alert("judge 1 - " + this.state.item.score1);
+    //alert("judge 2 - " + this.state.item.score2);
+    //alert("judge 3 - " + this.state.item.score3);
+    this.state.item.score = (this.state.item.score1 + this.state.item.score2 + this.state.item.score3)/3;
+    alert("SCORE - " + this.state.item.score);
     const { item } = this.state;
-    alert("judge 1 - " + this.state.item.score1);
-    alert("judge 2 - " + this.state.item.score2);
-    alert("judge 3 - " + this.state.item.score3);
-    //alert("STATE SCORE - " + this.state.item.score);
     if (item.id === 0) {
         await fetch('/api/group', {
             method: 'POST',
