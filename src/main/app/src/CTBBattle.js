@@ -5,10 +5,6 @@ import './CTBBattle.css';
 
 class CTBBattle extends Component {
 
-    constructor(props) {
-        super(props);
-        this.onChange = this.onChange.bind(this);
-      }
 
     state = {
         color: 'red',
@@ -36,23 +32,22 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Container>
+                <Container style={{width : 1500}}>
                     <Row xs="15">
-                        <Col id="response?"><Button color="primary" id="first" onClick={() => this.onChange}>A1</Button></Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col width="100px">&nbsp;</Col>
-                        <Col><Button color="primary">A5</Button></Col>
+                        <Col style={{width : 100}} id="response?"><Button color="primary" id="first" onClick={() => this.onChange(this)}>A1</Button></Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : 100}}><Button color="primary">A5</Button></Col>
                     </Row>
                     <Row>
                         <Col><Button color="primary">A1</Button></Col>
