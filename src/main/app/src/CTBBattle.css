@@ -1,3 +1,7 @@
+Row {
+    table-layout: fixed;
+}
+
 Col {
     width: 100px;
 }
