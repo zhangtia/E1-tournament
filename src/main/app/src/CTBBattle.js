@@ -33,7 +33,7 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <Row>
-                        <Col><Button color="primary" id="first" onClick={() => alert(this.id)}>A1</Button></Col>
+                        <Col id="response?"><Button color="primary" id="first" onClick={() => alert(this.id)}>A1</Button></Col>
                         <Col width="100px">&nbsp;</Col>
                         <Col width="100px">&nbsp;</Col>
                         <Col width="100px">&nbsp;</Col>
