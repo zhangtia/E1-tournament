@@ -5,6 +5,11 @@ import './CTBBattle.css';
 
 class CTBBattle extends Component {
 
+    constructor(props) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+      }
+
     state = {
         color: 'red',
         A1: '',
@@ -22,8 +27,8 @@ class CTBBattle extends Component {
         C1: '',
         C2: '',
     }
-    onChange = (id) => {
-        alert(id);
+    onChange = (x) => {
+        alert(x.id);
         this.setState({ color: 'green' });
     }
 
@@ -31,9 +36,9 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Container fluid>
-                    <Row>
-                        <Col id="response?"><Button color="primary" id="first" onClick={() => alert(this.id)}>A1</Button></Col>
+                <Container>
+                    <Row xs="15">
+                        <Col id="response?"><Button color="primary" id="first" onClick={() => this.onChange}>A1</Button></Col>
                         <Col width="100px">&nbsp;</Col>
                         <Col width="100px">&nbsp;</Col>
                         <Col width="100px">&nbsp;</Col>
