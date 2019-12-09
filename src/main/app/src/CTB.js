@@ -29,6 +29,8 @@ class CTBBattle extends Component {
     }
 
     setA1 = (x) => {
+        alert(!this.state.A1);
+        alert(this.state.A1 && this.state.A1 === '1');
         if (this.state.A1 !== '' ) {
             this.setState({ A2: '' });
         }
@@ -40,8 +42,8 @@ class CTBBattle extends Component {
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11"><Button color="primary"  disabled={this.state.A1 && this.state.A1 == '1'} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12"><Button color="primary"  disabled={this.state.A1 && this.state.A1 == '1'} onClick={() => this.setA1('1')}>A12</Button></div>
+                    <div class="box a11"><Button color="primary"  disabled={this.state.A1 && this.state.A1 === '1'} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12"><Button color="primary"  disabled={this.state.A1 && this.state.A1 === '1'} onClick={() => this.setA1('1')}>A12</Button></div>
                     <div class="box a21"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A21</Button></div>
                     <div class="box a22"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A22</Button></div>
                     <div class="box a31">A31</div>
