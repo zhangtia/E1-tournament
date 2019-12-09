@@ -9,6 +9,7 @@ class CTBBattle extends Component {
     state = {
         color: 'red',
         A1: '',
+        A1C: '#',
         A2: '#',
         A3: '#',
         A4: '#',
@@ -31,7 +32,7 @@ class CTBBattle extends Component {
     setA1(x) {
         //alert((this.state.A1 == '2') ? "a11" : "a12");
         if (this.state.A1 !== '') {
-            this.setState({ A1: '3', A2: '' });
+            this.setState({ A1C: '', A2: '' });
         } else {
             this.setState({ A1: x });
         }
@@ -51,7 +52,6 @@ class CTBBattle extends Component {
     }
 
     render() {
-        const stateA1 = this.state.A1;
         return (
             <div>
                 <AppNavbar />
@@ -89,7 +89,7 @@ class CTBBattle extends Component {
 
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={ (stateA1 === '2') ? "a11" : "a12" } isOpen={ (this.state.A1 === '3') }>
+                    <UncontrolledPopover trigger="legacy" placement="right" target={ (this.state.A1 === '2') ? "a11" : "a12" } isOpen={ (this.state.A1C === '') }>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             A11/A12 Buttons here to decide which breaker to capture.
