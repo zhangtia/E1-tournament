@@ -49,13 +49,17 @@ class CTBBattle extends Component {
         }
     }
 
+    report() {
+        alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
+    }
+
     render() {
         return (
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2')} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12" id="a12"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1')} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a11" id="a11"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2')} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12" id="a12"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2')} onClick={() => this.setA1('2')}>A12</Button></div>
                     <div class="box a21" id="a21"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '2')} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '1')} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31">A31</div>
@@ -71,7 +75,7 @@ class CTBBattle extends Component {
                     <div class="box a81">A81</div>
                     <div class="box a82">A82</div>
 
-                    <div class="box b11"><Button color="primary" onClick={() => alert(this.state.A1)}>B11</Button></div>
+                    <div class="box b11"><Button color="primary" onClick={() => this.report}>B11</Button></div>
                     <div class="box b12">B12</div>
                     <div class="box b21">B21</div>
                     <div class="box b22">B22</div>
