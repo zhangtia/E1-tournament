@@ -50,14 +50,14 @@ class CTBBattle extends Component {
                     <div class="box a81">A81</div>
                     <div class="box a82">A82</div>
                     
-                    <div class="box b12">B11</div>
+                    <div class="box b11">B11</div>
                     <div class="box b12">B12</div>
-                    <div class="box b12">B21</div>
-                    <div class="box b12">B22</div>
-                    <div class="box b12">B31</div>
-                    <div class="box b12">B32</div>
-                    <div class="box b12">B41</div>
-                    <div class="box b12">B42</div>
+                    <div class="box b21">B21</div>
+                    <div class="box b22">B22</div>
+                    <div class="box b31">B31</div>
+                    <div class="box b32">B32</div>
+                    <div class="box b41">B41</div>
+                    <div class="box b42">B42</div>
 
                     <div class="box c12">C12</div>
                     <div class="box c11">C11</div>
