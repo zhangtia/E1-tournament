@@ -34,20 +34,19 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <Container style={{width : '1500px'}}>
                     <Row xs="15">
-                        <Col style={{width : '100px'}} value="response?"><Button color="primary" value="first" onClick={() => this.onChange("first")}>A1</Button></Col>
-                        <Col style={{width : '100px'}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
-                        <Col style={{width : 100}}><Button color="primary">A5</Button></Col>
+                        <Col><Button color="primary" value="first" onClick={() => this.onChange("first")}>A1</Button></Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                        <Col><Button color="primary">A5</Button></Col>
                     </Row>
                     <Row>
                         <Col><Button color="primary">A1</Button></Col>
