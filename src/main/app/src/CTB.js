@@ -28,15 +28,19 @@ class CTBBattle extends Component {
         this.setState({ color: 'green' });
     }
 
+    setA1 = (x) => {
+        this.setState({ A1: x })
+    }
+
     render() {
         return (
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11"><Button color="primary"  disabled={this.state.A1}>A11</Button></div>
-                    <div class="box a12"><Button color="primary"  disabled={!this.state.A1}>A12</Button></div>
-                    <div class="box a21"><Button color="primary"  disabled={this.state.A1}>A21</Button></div>
-                    <div class="box a22">A22</div>
+                    <div class="box a11"><Button color="primary"  disabled={this.state.A1} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12"><Button color="primary"  disabled={!this.state.A1} onClick={() => this.setA1('1')}>A12</Button></div>
+                    <div class="box a21"><Button color="primary"  disabled={this.state.A1} onClick={() => this.setA1('')}>A21</Button></div>
+                    <div class="box a22"><Button color="primary"  disabled={!this.state.A1} onClick={() => this.setA1('')}>A22</Button></div>
                     <div class="box a31">A31</div>
                     <div class="box a32">A32</div>
                     <div class="box a41">A41</div>
