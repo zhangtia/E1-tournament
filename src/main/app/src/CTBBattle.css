@@ -1,3 +1,7 @@
+.container {
+    display: grid;
+}
+
 .col {
     width: 100px;
 }
