@@ -28,20 +28,23 @@ class CTBBattle extends Component {
         this.setState({ color: 'green' });
     }
 
-    setA1 = (x) => {
+    setA1(x) {
         //alert((this.state.A1 == '2') ? "a11" : "a12");
-
-        if (this.state.A1 !== '') {
-            this.setState({ A1: '3', A2: '' });
-        } else {
-            this.setState({ A1: x });
-        }
+        this.A1helper(x);
         alert(this.state.A1);
         alert(this.state.A1 == '2');
         alert((this.state.A1 == '2') ? "a11" : "a12");
     }
 
-    setA2 = (x) => {
+    A1helper(x) {
+        if (this.state.A1 !== '') {
+            this.setState({ A1: '3', A2: '' });
+        } else {
+            this.setState({ A1: x });
+        }
+    }
+
+    setA2(x) {
         if (this.state.A2 !== '') {
             this.setState({ A2: '3', A3: '' });
         } else {
