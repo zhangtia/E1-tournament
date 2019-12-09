@@ -29,12 +29,19 @@ class CTBBattle extends Component {
     }
 
     setA1 = (x) => {
-        alert(!this.state.A1);
-        alert((this.state.A1 === '' && (this.state.A1 === '1')));
         if (this.state.A1 !== '' ) {
-            this.setState({ A2: '3' });
+            this.setState({ A1: '3', A2: '' });
+        } else {
+            this.setState({ A1: x })
         }
-        this.setState({ A1: x })
+    }
+
+    setA2 = (x) => {
+        if (this.state.A2 !== '' ) {
+            this.setState({ A2: '3', A3: '' });
+        } else {
+            this.setState({ A2: x })
+        }
     }
 
     render() {
@@ -43,9 +50,9 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <div class="wrapper">
                     <div class="box a11"><Button color="primary"  disabled={!(this.state.A1 === '' || this.state.A1 === '2')} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12"><Button color="primary"  disabled={!(this.state.A1 === '' || this.state.A1 === '1')} onClick={() => this.setA1('1')}>A12</Button></div>
-                    <div class="box a21"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A21</Button></div>
-                    <div class="box a22"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A22</Button></div>
+                    <div class="box a12"><Button color="primary"  disabled={!(this.state.A1 === '' || this.state.A1 === '1')} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a21"><Button color="primary"  disabled={!(this.state.A2 === '' || this.state.A2 === '2')} onClick={() => this.setA2('1')}>A21</Button></div>
+                    <div class="box a22"><Button color="primary"  disabled={!(this.state.A2 === '' || this.state.A2 === '1')} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31">A31</div>
                     <div class="box a32">A32</div>
                     <div class="box a41">A41</div>
