@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+//import styled, { css } from "styled-components";
 import React from "react";
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
 
-import "./styles.css";
+/*import "./styles.css";
 //this is the styled component for the competitor which is just a button
 
 //i pass it props of css grid so that it the positions of the buttons can just be placed
@@ -27,7 +27,7 @@ const Main = styled.div`
   display: grid;
   height: 100vh;
   text-align: center;
-`;
+`;*/
 
 //props are passed into the input and input button for things such as a change or button click
 function Input(props) {
