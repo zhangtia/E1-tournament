@@ -7,7 +7,6 @@ class CTBBattle extends Component {
 
 
     state = {
-        color: 'red',
         A1: '',
         A1C: '#',
         A2: '#',
@@ -24,10 +23,10 @@ class CTBBattle extends Component {
         C1: '#',
         C2: '#',
     }
-    onChange = (x) => {
+    /*onChange = (x) => {
         alert(x);
         this.setState({ color: 'green' });
-    }
+    }*/
 
     setA1(x) {
         //alert((this.state.A1 == '2') ? "a11" : "a12");
@@ -36,12 +35,11 @@ class CTBBattle extends Component {
         } else {
             this.setState({ A1: x });
         }
-        alert(this.state.A1);
-        alert(this.state.A1 == '2');
-        alert((this.state.A1 == '2') ? "a11" : "a12");
     }
 
-
+    setA1C(x) {
+        this.setState({ A1C : x});
+    }
 
     setA2(x) {
         if (this.state.A2 !== '') {
@@ -89,13 +87,14 @@ class CTBBattle extends Component {
 
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={ (this.state.A1 === '2') ? "a11" : "a12" } isOpen={ (this.state.A1C === '') }>
+                    <UncontrolledPopover trigger="legacy" placement="right" target={(this.state.A1 === '2') ? "a11" : "a12"} isOpen={(this.state.A1C === '')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
-                            A11/A12 Buttons here to decide which breaker to capture.
+                            <Button onClick={() => this.setA1C('1')}>{(this.state.A1 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA1C('2')}>{(this.state.A1 === '2') ? "A1 Second" : "A2 Second"}</Button>
                         </PopoverBody>
                     </UncontrolledPopover>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={ (this.state.A2 == '2') ? "a21" : "a22" } isOpen={ (this.state.A2 === '3') }>
+                    <UncontrolledPopover trigger="legacy" placement="right" target={(this.state.A2 == '2') ? "a21" : "a22"} isOpen={(this.state.A2 === '3')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             A21/A22 Buttons here to decide which breaker to capture.
