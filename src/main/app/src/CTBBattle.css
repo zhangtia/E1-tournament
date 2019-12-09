@@ -1,7 +1,3 @@
-Row {
-    table-layout: fixed;
-}
-
-Col {
+.col {
     width: 100px;
 }
