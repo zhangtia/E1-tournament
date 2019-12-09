@@ -24,7 +24,7 @@ class CTBBattle extends Component {
         C2: '',
     }
     onChange = (x) => {
-        alert(x.value);
+        alert(x);
         this.setState({ color: 'green' });
     }
 
@@ -32,10 +32,10 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Container style={{width : 1500}}>
+                <Container style={{width : '1500px'}}>
                     <Row xs="15">
-                        <Col style={{width : 100}} value="response?"><Button color="primary" value="first" onClick={() => this.onChange(this)}>A1</Button></Col>
-                        <Col style={{width : 100}}>&nbsp;</Col>
+                        <Col style={{width : '100px'}} value="response?"><Button color="primary" value="first" onClick={() => this.onChange("first")}>A1</Button></Col>
+                        <Col style={{width : '100px'}}>&nbsp;</Col>
                         <Col style={{width : 100}}>&nbsp;</Col>
                         <Col style={{width : 100}}>&nbsp;</Col>
                         <Col style={{width : 100}}>&nbsp;</Col>
