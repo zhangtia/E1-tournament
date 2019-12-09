@@ -30,19 +30,17 @@ class CTBBattle extends Component {
 
     setA1(x) {
         //alert((this.state.A1 == '2') ? "a11" : "a12");
-        this.A1helper(x);
-        alert(this.state.A1);
-        alert(this.state.A1 == '2');
-        alert((this.state.A1 == '2') ? "a11" : "a12");
-    }
-
-    A1helper(x) {
         if (this.state.A1 !== '') {
             this.setState({ A1: '3', A2: '' });
         } else {
             this.setState({ A1: x });
         }
+        alert(this.state.A1);
+        alert(this.state.A1 == '2');
+        alert((this.state.A1 == '2') ? "a11" : "a12");
     }
+
+
 
     setA2(x) {
         if (this.state.A2 !== '') {
@@ -74,7 +72,7 @@ class CTBBattle extends Component {
                     <div class="box a81">A81</div>
                     <div class="box a82">A82</div>
 
-                    <div class="box b11">B11</div>
+                    <div class="box b11"><Button color="primary" onClick={() => this.alert(this.state.A1)}>B11</Button></div>
                     <div class="box b12">B12</div>
                     <div class="box b21">B21</div>
                     <div class="box b22">B22</div>
