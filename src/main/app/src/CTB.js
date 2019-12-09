@@ -89,13 +89,13 @@ class CTBBattle extends Component {
 
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={ (stateA1 === '2') ? "a11" : "a12" } isOpen={ (this.state.A1 === '2' || this.state.A1 === '1') }>
+                    <UncontrolledPopover trigger="legacy" placement="right" target={ (stateA1 === '2') ? "a11" : "a12" } isOpen={ (this.state.A1 === '3') }>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             A11/A12 Buttons here to decide which breaker to capture.
                         </PopoverBody>
                     </UncontrolledPopover>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={ (this.state.A2 == '2') ? "a21" : "a22" } isOpen={ (this.state.A2 === '2' || this.state.A2 === '1') }>
+                    <UncontrolledPopover trigger="legacy" placement="right" target={ (this.state.A2 == '2') ? "a21" : "a22" } isOpen={ (this.state.A2 === '3') }>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             A21/A22 Buttons here to decide which breaker to capture.
