@@ -9,19 +9,19 @@ class CTBBattle extends Component {
     state = {
         color: 'red',
         A1: '',
-        A2: '',
-        A3: '',
-        A4: '',
-        A5: '',
-        A6: '',
-        A7: '',
-        A8: '',
-        B1: '',
-        B2: '',
-        B3: '',
-        B4: '',
-        C1: '',
-        C2: '',
+        A2: '#',
+        A3: '#',
+        A4: '#',
+        A5: '#',
+        A6: '#',
+        A7: '#',
+        A8: '#',
+        B1: '#',
+        B2: '#',
+        B3: '#',
+        B4: '#',
+        C1: '#',
+        C2: '#',
     }
     onChange = (x) => {
         alert(x);
@@ -29,6 +29,9 @@ class CTBBattle extends Component {
     }
 
     setA1 = (x) => {
+        if (this.state.A1 === x) {
+            this.setState({ A2: '' });
+        }
         this.setState({ A1: x })
     }
 
@@ -38,9 +41,9 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <div class="wrapper">
                     <div class="box a11"><Button color="primary"  disabled={this.state.A1} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12"><Button color="primary"  disabled={!this.state.A1} onClick={() => this.setA1('1')}>A12</Button></div>
-                    <div class="box a21"><Button color="primary"  disabled={this.state.A1} onClick={() => this.setA1('')}>A21</Button></div>
-                    <div class="box a22"><Button color="primary"  disabled={!this.state.A1} onClick={() => this.setA1('')}>A22</Button></div>
+                    <div class="box a12"><Button color="primary"  disabled={this.state.A1} onClick={() => this.setA1('1')}>A12</Button></div>
+                    <div class="box a21"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A21</Button></div>
+                    <div class="box a22"><Button color="primary"  disabled={this.state.A2} onClick={() => this.setA1('')}>A22</Button></div>
                     <div class="box a31">A31</div>
                     <div class="box a32">A32</div>
                     <div class="box a41">A41</div>
