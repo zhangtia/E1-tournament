@@ -32,7 +32,7 @@
 
 .a22 {
     grid-column: 1 / 2;
-    grid-row: 11 / 12;
+    grid-row: 11 / 13;
 }
 
 .a31 {
@@ -72,7 +72,7 @@
 
 .a62 {
     grid-column: 15 / 16;
-    grid-row: 11 / 12;
+    grid-row: 11 / 13;
 }
 
 .a71 {

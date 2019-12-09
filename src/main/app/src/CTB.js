@@ -33,9 +33,9 @@ class CTBBattle extends Component {
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11">A11</div>
-                    <div class="box a12">A12</div>
-                    <div class="box a21">A21</div>
+                    <div class="box a11"><Button color="primary"  disabled={this.state.A1}>A11</Button></div>
+                    <div class="box a12"><Button color="primary"  disabled={!this.state.A1}>A12</Button></div>
+                    <div class="box a21"><Button color="primary"  disabled={this.state.A1}>A21</Button></div>
                     <div class="box a22">A22</div>
                     <div class="box a31">A31</div>
                     <div class="box a32">A32</div>
