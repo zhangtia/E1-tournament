@@ -29,11 +29,14 @@ class CTBBattle extends Component {
     }
 
     setA1 = (x) => {
+        alert((this.state.A1 == '2') ? "a11" : "a12");
+
         if (this.state.A1 !== '') {
             this.setState({ A1: '3', A2: '' });
         } else {
             this.setState({ A1: x })
         }
+        alert((this.state.A1 == '2') ? "a11" : "a12");
     }
 
     setA2 = (x) => {
