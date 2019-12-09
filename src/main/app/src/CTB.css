@@ -1,7 +1,8 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px;
     grid-template-rows: 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px 76px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
     grid-gap: 10px;
     background-color: #fff;
     color: #444;
