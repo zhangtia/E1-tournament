@@ -51,6 +51,7 @@ class CTBBattle extends Component {
 
     report() {
         alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
+        alert((this.state.A1 === '2') ? "a11" : "a12");
     }
 
     render() {
