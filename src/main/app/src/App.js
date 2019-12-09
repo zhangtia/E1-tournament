@@ -7,7 +7,6 @@ import GroupEdit from './GroupEdit';
 import Prelim from './Prelim.js';
 import PrelimEdit from './PrelimEdit.js';
 import CTBBattle from './CTBBattle.js';
-import bkt from './bkt.js';
 
 class App extends Component {
   render() {
@@ -19,7 +18,7 @@ class App extends Component {
           <Route path='/groups/:id' component={GroupEdit}/>
           <Route path='/prelim' exact={true} component={Prelim}/>
           <Route path='/prelim/:id' component={PrelimEdit}/>
-          <Route path='/ctbbattle' exact={true} component={bkt}/>
+          <Route path='/ctbbattle' exact={true} component={CTBBattle}/>
         </Switch>
       </Router>
     )
