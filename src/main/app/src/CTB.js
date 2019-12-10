@@ -50,8 +50,8 @@ class CTBBattle extends Component {
     }
 
     report() {
-        alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
-        alert((this.state.A1 === '2') ? "a11" : "a12");
+        alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C + " target : " + (this.state.A1 === '2') ? "a11" : "a12");
+        //alert((this.state.A1 === '2') ? "a11" : "a12");
     }
 
     render() {
@@ -59,8 +59,8 @@ class CTBBattle extends Component {
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2')} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12" id="a12"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2')} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a11" id="a11"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12" id="a12"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('2')}>A12</Button></div>
                     <div class="box a21" id="a21"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '2')} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '1')} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31">A31</div>
@@ -92,7 +92,10 @@ class CTBBattle extends Component {
 
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={(this.state.A1 === '2') ? "a11" : "a12"} isOpen={(this.state.A1C === '')}>
+
+                    <div class="fillbox a1fill" id="a1fill">&nbsp;</div>
+
+                    <UncontrolledPopover trigger="legacy" placement="right" target="a1fill" isOpen={(this.state.A1C === '')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             <Button onClick={() => this.setA1C('1')}>{(this.state.A1 === '2') ? "A1 First" : "A2 First"}</Button>
