@@ -59,8 +59,8 @@ class CTBBattle extends Component {
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12" id="a12"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a11" id="a11"><Button color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12" id="a12"><Button color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>A12</Button></div>
                     <div class="box a21" id="a21"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '2')} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '1')} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31">A31</div>
@@ -71,8 +71,8 @@ class CTBBattle extends Component {
                     <div class="box a52">A52</div>
                     <div class="box a61">A61</div>
                     <div class="box a62">A62</div>
-                    <div class="box a71">A71</div>
-                    <div class="box a72">A72</div>
+                    <div class="box a71"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '2' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('1')}>A11 Just in case</Button></div>
+                    <div class="box a72"><Button color="primary" disabled={!(this.state.A1 === '' || this.state.A1 === '1' || this.state.A1C === '#' || this.state.A1C === '')} onClick={() => this.setA1('2')}>A12 Just in case</Button></div>
                     <div class="box a81">A81</div>
                     <div class="box a82">A82</div>
 
