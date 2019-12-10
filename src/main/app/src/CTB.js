@@ -25,10 +25,14 @@ class CTBBattle extends Component {
         A8C: '#',
 
         B1: '#',
+        B1C: "#",
         B2: '#',
+        B2C: '#',
         B3: '#',
+        B3C: '#',
         B4: '#',
-        
+        B4C: '#',
+
         C1: '#',
         C2: '#',
     }
@@ -110,7 +114,7 @@ class CTBBattle extends Component {
     }
 
     setA7(x) {
-        if (this.state.A6 !== '') {
+        if (this.state.A7 !== '') {
             this.setState({ A7C: '', A8: '' });
         } else {
             this.setState({ A7: x });
@@ -122,7 +126,7 @@ class CTBBattle extends Component {
     }
 
     setA8(x) {
-        if (this.state.A6 !== '') {
+        if (this.state.A8 !== '') {
             this.setState({ A8C: '', B1: '' });
         } else {
             this.setState({ A8: x });
@@ -131,7 +135,19 @@ class CTBBattle extends Component {
 
     setA8C(x) {
         this.setState({ A8C: x });
-    }    
+    }
+    
+    setB1(x) {
+        if (this.state.B1 !== '') {
+            this.setState({ B1C: '', B2: '' });
+        } else {
+            this.setState({ B1: x });
+        }
+    }
+
+    setB1C(x) {
+        this.setState({ B1C: x });
+    }
 
     report() {
         alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
@@ -224,6 +240,49 @@ class CTBBattle extends Component {
                             <Button onClick={() => this.setA5C('2')}>{(this.state.A5 === '2') ? "A1 Second" : "A2 Second"}</Button>
                         </PopoverBody>
                     </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="left" target="a6fill" isOpen={(this.state.A6C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setA6C('1')}>{(this.state.A6 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA6C('2')}>{(this.state.A6 === '2') ? "A1 Second" : "A2 Second"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="left" target="a7fill" isOpen={(this.state.A7C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setA7C('1')}>{(this.state.A7 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA7C('2')}>{(this.state.A7 === '2') ? "A1 Second" : "A2 Second"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="left" target="a8fill" isOpen={(this.state.A8C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setA8C('1')}>{(this.state.A8 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA8C('2')}>{(this.state.A8 === '2') ? "A1 Second" : "A2 Second"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="b11" isOpen={(this.state.B1C === '') && (this.state.B1 === '2')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setB1C('1')}>{(this.state.B1 === '2') ? "B1 First" : "B2 First"}</Button>
+                            <Button onClick={() => this.setB1C('2')}>{(this.state.B1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                            <Button onClick={() => this.setB1C('3')}>{(this.state.B1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="top" target="b12" isOpen={(this.state.B1C === '') && (this.state.B1 === '1')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setB1C('1')}>{(this.state.B1 === '2') ? "B1 First" : "B2 First"}</Button>
+                            <Button onClick={() => this.setB1C('2')}>{(this.state.B1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                            <Button onClick={() => this.setB1C('3')}>{(this.state.B1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
                 </div>
 
             </div>
