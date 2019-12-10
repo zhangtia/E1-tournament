@@ -266,7 +266,14 @@ class CTBBattle extends Component {
                     </UncontrolledPopover>
 
 
-
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="b11" isOpen={(this.state.B1C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setB1C('1')}>{(this.state.B1 === '2') ? "B1 First" : "B2 First"}</Button>
+                            <Button onClick={() => this.setB1C('2')}>{(this.state.B1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                            <Button onClick={() => this.setB1C('3')}>{(this.state.B1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
 
 
 
