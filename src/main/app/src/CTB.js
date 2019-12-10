@@ -28,6 +28,7 @@ class CTBBattle extends Component {
         B2: '#',
         B3: '#',
         B4: '#',
+        
         C1: '#',
         C2: '#',
     }
@@ -100,6 +101,18 @@ class CTBBattle extends Component {
         if (this.state.A6 !== '') {
             this.setState({ A6C: '', A7: '' });
         } else {
+            this.setState({ A6: x });
+        }
+    }
+
+    setA6C(x) {
+        this.setState({ A6C: x });
+    }
+
+    setA7(x) {
+        if (this.state.A6 !== '') {
+            this.setState({ A7C: '', A8: '' });
+        } else {
             this.setState({ A7: x });
         }
     }
@@ -107,6 +120,18 @@ class CTBBattle extends Component {
     setA7C(x) {
         this.setState({ A7C: x });
     }
+
+    setA8(x) {
+        if (this.state.A6 !== '') {
+            this.setState({ A8C: '', B1: '' });
+        } else {
+            this.setState({ A8: x });
+        }
+    }
+
+    setA8C(x) {
+        this.setState({ A8C: x });
+    }    
 
     report() {
         alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
@@ -122,17 +147,17 @@ class CTBBattle extends Component {
                     <div class="box a21" id="a21"><Button color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
-                    <div class="box a32" id="a32"><Button color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '2' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('2')}>A22</Button></div>
-                    <div class="box a41" id="a41">A41</div>
-                    <div class="box a42" id="a42">A42</div>
-                    <div class="box a51" id="a51">A51</div>
-                    <div class="box a52" id="a52">A52</div>
-                    <div class="box a61" id="a61">A61</div>
-                    <div class="box a62" id="a62">A62</div>
-                    <div class="box a71" id="a71">A71</div>
-                    <div class="box a72" id="a72">A72</div>
-                    <div class="box a81" id="a81">A81</div>
-                    <div class="box a82" id="a82">A82</div>
+                    <div class="box a32" id="a32"><Button color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '2' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('2')}>A32</Button></div>
+                    <div class="box a41" id="a41"><Button color="primary" disabled={this.state.A3C === '#' || this.state.A3C === '' || this.state.A4 === '1' || this.state.A4C === '1' || this.state.A4C === '2'} onClick={() => this.setA4('1')}>A41</Button></div>
+                    <div class="box a42" id="a42"><Button color="primary" disabled={this.state.A3C === '#' || this.state.A3C === '' || this.state.A4 === '2' || this.state.A4C === '1' || this.state.A4C === '2'} onClick={() => this.setA4('2')}>A42</Button></div>
+                    <div class="box a51" id="a51"><Button color="primary" disabled={this.state.A4C === '#' || this.state.A4C === '' || this.state.A5 === '1' || this.state.A5C === '1' || this.state.A5C === '2'} onClick={() => this.setA5('1')}>A51</Button></div>
+                    <div class="box a52" id="a52"><Button color="primary" disabled={this.state.A4C === '#' || this.state.A4C === '' || this.state.A5 === '2' || this.state.A5C === '1' || this.state.A5C === '2'} onClick={() => this.setA5('2')}>A52</Button></div>
+                    <div class="box a61" id="a61"><Button color="primary" disabled={this.state.A5C === '#' || this.state.A5C === '' || this.state.A6 === '1' || this.state.A6C === '1' || this.state.A6C === '2'} onClick={() => this.setA6('1')}>A61</Button></div>
+                    <div class="box a62" id="a62"><Button color="primary" disabled={this.state.A5C === '#' || this.state.A5C === '' || this.state.A6 === '2' || this.state.A6C === '1' || this.state.A6C === '2'} onClick={() => this.setA6('2')}>A62</Button></div>
+                    <div class="box a71" id="a71"><Button color="primary" disabled={this.state.A6C === '#' || this.state.A6C === '' || this.state.A7 === '1' || this.state.A7C === '1' || this.state.A7C === '2'} onClick={() => this.setA7('1')}>A71</Button></div>
+                    <div class="box a72" id="a72"><Button color="primary" disabled={this.state.A6C === '#' || this.state.A6C === '' || this.state.A7 === '2' || this.state.A7C === '1' || this.state.A7C === '2'} onClick={() => this.setA7('2')}>A72</Button></div>
+                    <div class="box a81" id="a81"><Button color="primary" disabled={this.state.A7C === '#' || this.state.A7C === '' || this.state.A8 === '1' || this.state.A8C === '1' || this.state.A8C === '2'} onClick={() => this.setA8('1')}>A81</Button></div>
+                    <div class="box a82" id="a82"><Button color="primary" disabled={this.state.A7C === '#' || this.state.A7C === '' || this.state.A8 === '2' || this.state.A8C === '1' || this.state.A8C === '2'} onClick={() => this.setA8('2')}>A82</Button></div>
 
                     <div class="box b11"><Button color="primary" onClick={() => this.report()}>B11</Button></div>
                     <div class="box b12">B12</div>
@@ -181,6 +206,22 @@ class CTBBattle extends Component {
                         <PopoverBody>
                             <Button onClick={() => this.setA3C('1')}>{(this.state.A3 === '2') ? "A1 First" : "A2 First"}</Button>
                             <Button onClick={() => this.setA3C('2')}>{(this.state.A3 === '2') ? "A1 Second" : "A2 Second"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="right" target="a4fill" isOpen={(this.state.A4C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setA4C('1')}>{(this.state.A4 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA4C('2')}>{(this.state.A4 === '2') ? "A1 Second" : "A2 Second"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="left" target="a5fill" isOpen={(this.state.A5C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setA5C('1')}>{(this.state.A5 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA5C('2')}>{(this.state.A5 === '2') ? "A1 Second" : "A2 Second"}</Button>
                         </PopoverBody>
                     </UncontrolledPopover>
                 </div>
