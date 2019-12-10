@@ -10,12 +10,20 @@ class CTBBattle extends Component {
         A1: '',
         A1C: '#',
         A2: '#',
+        A2C: '#',
         A3: '#',
+        A3C: '#',
         A4: '#',
+        A4C: '#',
         A5: '#',
+        A5C: '#',
         A6: '#',
+        A6C: '#',
         A7: '#',
+        A7C: '#',
         A8: '#',
+        A8C: '#',
+
         B1: '#',
         B2: '#',
         B3: '#',
@@ -38,12 +46,12 @@ class CTBBattle extends Component {
     }
 
     setA1C(x) {
-        this.setState({ A1C : x});
+        this.setState({ A1C: x });
     }
 
     setA2(x) {
         if (this.state.A2 !== '') {
-            this.setState({ A2: '3', A3: '' });
+            this.setState({ A2C: '', A3: '' });
         } else {
             this.setState({ A2: x });
         }
@@ -59,10 +67,10 @@ class CTBBattle extends Component {
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12" id="a12"><Button color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>A12</Button></div>
-                    <div class="box a21" id="a21"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '2')} onClick={() => this.setA2('1')}>A21</Button></div>
-                    <div class="box a22" id="a22"><Button color="primary" disabled={!(this.state.A2 === '' || this.state.A2 === '1')} onClick={() => this.setA2('2')}>A22</Button></div>
+                    <div class="box a11" id="a11"><Button color="primary" disabled={this.state.A1 === '#' || this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>A11</Button></div>
+                    <div class="box a12" id="a12"><Button color="primary" disabled={this.state.A1 === '#' || this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a21" id="a21"><Button color="primary" disabled={this.state.A2 === '#' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
+                    <div class="box a22" id="a22"><Button color="primary" disabled={this.state.A2 === '#' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31">A31</div>
                     <div class="box a32">A32</div>
                     <div class="box a41">A41</div>
@@ -94,6 +102,7 @@ class CTBBattle extends Component {
                     <div class="box final2">FINAL2</div>
 
                     <div class="fillbox a1fill" id="a1fill">&nbsp;</div>
+                    <div class="fillbox a2fill" id="a2fill">&nbsp;</div>
 
                     <UncontrolledPopover trigger="legacy" placement="right" target="a1fill" isOpen={(this.state.A1C === '')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
@@ -102,10 +111,11 @@ class CTBBattle extends Component {
                             <Button onClick={() => this.setA1C('2')}>{(this.state.A1 === '2') ? "A1 Second" : "A2 Second"}</Button>
                         </PopoverBody>
                     </UncontrolledPopover>
-                    <UncontrolledPopover trigger="legacy" placement="right" target={(this.state.A2 == '2') ? "a21" : "a22"} isOpen={(this.state.A2 === '3')}>
+                    <UncontrolledPopover trigger="legacy" placement="right" target="a2fill" isOpen={(this.state.A2C === '')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
-                            A21/A22 Buttons here to decide which breaker to capture.
+                            <Button onClick={() => this.setA2C('1')}>{(this.state.A2 === '2') ? "A1 First" : "A2 First"}</Button>
+                            <Button onClick={() => this.setA2C('2')}>{(this.state.A2 === '2') ? "A1 Second" : "A2 Second"}</Button>
                         </PopoverBody>
                     </UncontrolledPopover>
                 </div>
