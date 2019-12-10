@@ -175,14 +175,14 @@ class CTBBattle extends Component {
                     <div class="box a81" id="a81"><Button color="primary" disabled={this.state.A7C === '#' || this.state.A7C === '' || this.state.A8 === '1' || this.state.A8C === '1' || this.state.A8C === '2'} onClick={() => this.setA8('1')}>A81</Button></div>
                     <div class="box a82" id="a82"><Button color="primary" disabled={this.state.A7C === '#' || this.state.A7C === '' || this.state.A8 === '2' || this.state.A8C === '1' || this.state.A8C === '2'} onClick={() => this.setA8('2')}>A82</Button></div>
 
-                    <div class="box b11"><Button color="primary" disabled={this.state.A8C === '#' || this.state.A8C === '' || this.state.B1 === '1' || this.state.B1C === '1' || this.state.B1C === '2'} onClick={() => this.setB1('1')}>B11</Button></div>
-                    <div class="box b12"><Button color="primary" disabled={this.state.A8C === '#' || this.state.A8C === '' || this.state.B1 === '2' || this.state.B1C === '1' || this.state.B1C === '2'} onClick={() => this.setB1('2')}>B12</Button></div>
-                    <div class="box b21">B21</div>
-                    <div class="box b22">B22</div>
-                    <div class="box b31">B31</div>
-                    <div class="box b32">B32</div>
-                    <div class="box b41">B41</div>
-                    <div class="box b42">B42</div>
+                    <div class="box b11" id="b11"><Button color="primary" disabled={this.state.A8C === '#' || this.state.A8C === '' || this.state.B1 === '1' || this.state.B1C === '1' || this.state.B1C === '2'} onClick={() => this.setB1('1')}>B11</Button></div>
+                    <div class="box b12" id="b12"><Button color="primary" disabled={this.state.A8C === '#' || this.state.A8C === '' || this.state.B1 === '2' || this.state.B1C === '1' || this.state.B1C === '2'} onClick={() => this.setB1('2')}>B12</Button></div>
+                    <div class="box b21" id="b21">B21</div>
+                    <div class="box b22" id="b22">B22</div>
+                    <div class="box b31" id="b31">B31</div>
+                    <div class="box b32" id="b32">B32</div>
+                    <div class="box b41" id="b41">B41</div>
+                    <div class="box b42" id="b42">B42</div>
 
                     <div class="box c12">C12</div>
                     <div class="box c11">C11</div>
@@ -266,7 +266,16 @@ class CTBBattle extends Component {
                     </UncontrolledPopover>
 
 
-                    <UncontrolledPopover trigger="legacy" placement="bottom" target="b21" isOpen={(this.state.B1C === '')}>
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="b11" isOpen={(this.state.B1C === '')}>
+                        <PopoverHeader>Capture the breaker!</PopoverHeader>
+                        <PopoverBody>
+                            <Button onClick={() => this.setB1C('1')}>{(this.state.B1 === '2') ? "B1 First" : "B2 First"}</Button>
+                            <Button onClick={() => this.setB1C('2')}>{(this.state.B1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                            <Button onClick={() => this.setB1C('3')}>{(this.state.B1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
+
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="b12" isOpen={(this.state.B1C === '')}>
                         <PopoverHeader>Capture the breaker!</PopoverHeader>
                         <PopoverBody>
                             <Button onClick={() => this.setB1C('1')}>{(this.state.B1 === '2') ? "B1 First" : "B2 First"}</Button>
