@@ -63,6 +63,11 @@
     grid-row: 19 / 21;
 }
 
+.a3fill {
+    grid-column: 1 / 2;
+    grid-row: 18 / 19;
+}
+
 .a41 {
     grid-column: 1 / 2;
     grid-row: 23 / 25;
@@ -71,6 +76,11 @@
 .a42 {
     grid-column: 1 / 2;
     grid-row: 26 / 28;
+}
+
+.a4fill {
+    grid-column: 1 / 2;
+    grid-row: 25 / 26;
 }
 
 .a51 {
@@ -83,6 +93,11 @@
     grid-row: 4 / 6;
 }
 
+.a5fill {
+    grid-column: 15 / 16;
+    grid-row: 3 / 4;
+}
+
 .a61 {
     grid-column: 15 / 16;
     grid-row: 8 / 10;
@@ -91,6 +106,11 @@
 .a62 {
     grid-column: 15 / 16;
     grid-row: 11 / 13;
+}
+
+.a6fill {
+    grid-column: 15 / 16;
+    grid-row: 10 / 11;
 }
 
 .a71 {
@@ -103,6 +123,11 @@
     grid-row: 19 / 21;
 }
 
+.a7fill {
+    grid-column: 15 / 16;
+    grid-row: 18 / 19;
+}
+
 .a81 {
     grid-column: 15 / 16;
     grid-row: 23 / 25;
@@ -111,6 +136,11 @@
 .a82 {
     grid-column: 15 / 16;
     grid-row: 26 / 28;
+}
+
+.a8fill {
+    grid-column: 15 / 16;
+    grid-row: 25 / 26;
 }
 
 .b11 {
