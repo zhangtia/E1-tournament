@@ -7,7 +7,7 @@ class GroupList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { groups: [], isLoading: true };
+        this.state = { groups: [], isLoading: true, deltarget: 0 };
         this.remove = this.remove.bind(this);
     }
 
@@ -16,7 +16,11 @@ class GroupList extends Component {
 
         fetch('api/groups')
             .then(response => response.json())
-            .then(data => this.setState({ groups: data, isLoading: false }));
+            .then(data => this.setState({ groups: data, isLoading: false}));
+    }
+
+    setdeltgt(x) {
+        this.setState({ deltarget: x });
     }
 
     async remove(id) {
@@ -84,12 +88,12 @@ class GroupList extends Component {
                 <td>{group.score}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="danger" id="delone">Delete</Button>
+                        <Button size="sm" color="danger" id="delone" onClick={() => this.setdeltgt(group.id)}>Delete</Button>
                         <UncontrolledPopover trigger="legacy" placement="left" target="delone">
                             <PopoverHeader>CONFIRM DELETE</PopoverHeader>
                             <PopoverBody>
                                 <p>Delete competitor data, proceed?</p>
-                                <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Confirm Delete</Button>
+                                <Button size="sm" color="danger" onClick={() => this.remove(this.state.deltarget)}>Confirm Delete</Button>
                             </PopoverBody>
                         </UncontrolledPopover>
                         <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
