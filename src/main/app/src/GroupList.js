@@ -46,19 +46,24 @@ class GroupList extends Component {
     }
 
     async loadcomptrs() {
-        var sc1 = 10 * Math.random();
-        var sc2 = 10 * Math.random();
-        var sc3 = 10 * Math.random();
-        var sc = (sc1 + sc2 + sc3)/3;
-        const stuff  = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": sc, "score1":sc1,"score2":sc2,"score3":sc3 };
-        await fetch('/api/group', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(stuff),
-        });
+        this.removeall();
+        var i;
+        for (i = 0; i < 40; ++i) {
+
+            var sc1 = 10 * Math.random();
+            var sc2 = 10 * Math.random();
+            var sc3 = 10 * Math.random();
+            var sc = (sc1 + sc2 + sc3) / 3;
+            const stuff = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": sc, "score1": sc1, "score2": sc2, "score3": sc3 };
+            await fetch('/api/group', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(stuff),
+            });
+        }
 
         fetch('api/groups')
             .then(response => response.json())
