@@ -7,7 +7,7 @@ class GroupList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { groups: [], isLoading: true, deltarget: 0 };
+        this.state = { groups: [], isLoading: true, deltarget: 0, opn: false };
         this.remove = this.remove.bind(this);
     }
 
@@ -20,10 +20,11 @@ class GroupList extends Component {
     }
 
     setdeltgt(x) {
-        this.setState({ deltarget: x });
+        this.setState({ deltarget: x, opn: true });
     }
 
     async remove(id) {
+        this.setState({ opn: false });
         await fetch(`/api/group/${id}`, {
             method: 'DELETE',
             headers: {
@@ -89,7 +90,7 @@ class GroupList extends Component {
                 <td>
                     <ButtonGroup>
                         <Button size="sm" color="danger" id="delone" onClick={() => this.setdeltgt(group.id)}>Delete</Button>
-                        <UncontrolledPopover trigger="legacy" placement="left" target="delone">
+                        <UncontrolledPopover trigger="legacy" placement="left" target="delone" isOpen={this.state.opn}>
                             <PopoverHeader>CONFIRM DELETE</PopoverHeader>
                             <PopoverBody>
                                 <p>Delete competitor data, proceed?</p>
