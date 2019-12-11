@@ -48,14 +48,16 @@ class GroupList extends Component {
     async loadcomptrs() {
         var i;
         for (i = 0; i < 40; ++i) {
+            const stuff = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": 10 * Math.random() };
             await fetch('/api/group', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "name": Math.random().toString(36).substring(2, 8), "address": "", "score": 10 * Math.random() }),
+                body: JSON.stringify(stuff),
             });
+            console.log(i);
         }
         fetch('api/groups')
             .then(response => response.json())
