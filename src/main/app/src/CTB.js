@@ -34,7 +34,9 @@ class CTBBattle extends Component {
         B4C: '#',
 
         C1: '#',
+        C1C: '#',
         C2: '#',
+        C2C: '#',
     }
     /*onChange = (x) => {
         alert(x);
@@ -185,6 +187,31 @@ class CTBBattle extends Component {
         this.setState({ B4C: x });
     }
 
+    setC1(x) {
+        if (this.state.C1 !== '') {
+            this.setState({ C1C: '', C2: '' });
+        } else {
+            this.setState({ C1: x });
+        }
+    }
+
+    setC1C(x) {
+        this.setState({ C1C: x });
+    }
+
+    setC2(x) {
+        if (this.state.C2 !== '') {
+            this.setState({ C2C: '' });
+        } else {
+            this.setState({ C2: x });
+        }
+    }
+
+    setC2C(x) {
+        this.setState({ C2C: x });
+    }
+
+
     report() {
         alert("A1 : " + this.state.A1 + " A1C : " + this.state.A1C);
     }
@@ -220,10 +247,10 @@ class CTBBattle extends Component {
                     <div class="box b41" id="b41"><Button color="primary" disabled={this.state.B3C === '#' || this.state.B3C === '' || this.state.B4 === '1' || this.state.B4C === '1' || this.state.B4C === '2'} onClick={() => this.setB4('1')}>B41</Button></div>
                     <div class="box b42" id="b42"><Button color="primary" disabled={this.state.B3C === '#' || this.state.B3C === '' || this.state.B4 === '2' || this.state.B4C === '1' || this.state.B4C === '2'} onClick={() => this.setB4('2')}>B42</Button></div>
 
-                    <div class="box c12" id="c12">C12</div>
-                    <div class="box c11" id="c11">C11</div>
-                    <div class="box c22" id="c22">C22</div>
-                    <div class="box c21" id="c21">C21</div>
+                    <div class="box c12" id="c12"><Button color="primary" disabled={this.state.B4C === '#' || this.state.B4C === '' || this.state.C1 === '2' || this.state.C1C === '1' || this.state.C1C === '2'} onClick={() => this.setC1('2')}>C12</Button></div>
+                    <div class="box c11" id="c11"><Button color="primary" disabled={this.state.B4C === '#' || this.state.B4C === '' || this.state.C1 === '1' || this.state.C1C === '1' || this.state.C1C === '2'} onClick={() => this.setC1('1')}>C11</Button></div>
+                    <div class="box c22" id="c22"><Button color="primary" disabled={this.state.C1C === '#' || this.state.C1C === '' || this.state.C2 === '2' || this.state.C2C === '1' || this.state.C2C === '2'} onClick={() => this.setC2('2')}>C22</Button></div>
+                    <div class="box c21" id="c21"><Button color="primary" disabled={this.state.C1C === '#' || this.state.C1C === '' || this.state.C2 === '1' || this.state.C2C === '1' || this.state.C2C === '2'} onClick={() => this.setC2('1')}>C21</Button></div>
 
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
@@ -341,7 +368,7 @@ class CTBBattle extends Component {
                             </PopoverBody>
                         </UncontrolledPopover>}
 
-                        {(this.state.B3 === '2') &&
+                    {(this.state.B3 === '2') &&
                         <UncontrolledPopover trigger="legacy" placement="bottom" target="b31" isOpen={(this.state.B3C === '')}>
                             <PopoverHeader>Capture the breaker!</PopoverHeader>
                             <PopoverBody>
@@ -361,7 +388,7 @@ class CTBBattle extends Component {
                             </PopoverBody>
                         </UncontrolledPopover>}
 
-                        {(this.state.B4 === '2') &&
+                    {(this.state.B4 === '2') &&
                         <UncontrolledPopover trigger="legacy" placement="bottom" target="b41" isOpen={(this.state.B4C === '')}>
                             <PopoverHeader>Capture the breaker!</PopoverHeader>
                             <PopoverBody>
@@ -378,6 +405,46 @@ class CTBBattle extends Component {
                                 <Button onClick={() => this.setB4C('1')}>{(this.state.B4 === '2') ? "B1 First" : "B2 First"}</Button>
                                 <Button onClick={() => this.setB4C('2')}>{(this.state.B4 === '2') ? "B1 Second" : "B2 Second"}</Button>
                                 <Button onClick={() => this.setB4C('3')}>{(this.state.B4 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>}
+
+                    {(this.state.C1 === '2') &&
+                        <UncontrolledPopover trigger="legacy" placement="bottom" target="c11" isOpen={(this.state.C1C === '')}>
+                            <PopoverHeader>Capture the breaker!</PopoverHeader>
+                            <PopoverBody>
+                                <Button onClick={() => this.setC1C('1')}>{(this.state.C1 === '2') ? "B1 First" : "B2 First"}</Button>
+                                <Button onClick={() => this.setC1C('2')}>{(this.state.C1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                                <Button onClick={() => this.setC1C('3')}>{(this.state.C1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>}
+
+                    {(this.state.C1 === '1') &&
+                        <UncontrolledPopover trigger="legacy" placement="top" target="c12" isOpen={(this.state.C1C === '')}>
+                            <PopoverHeader>Capture the breaker!</PopoverHeader>
+                            <PopoverBody>
+                                <Button onClick={() => this.setC1C('1')}>{(this.state.C1 === '2') ? "B1 First" : "B2 First"}</Button>
+                                <Button onClick={() => this.setC1C('2')}>{(this.state.C1 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                                <Button onClick={() => this.setC1C('3')}>{(this.state.C1 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>}
+
+                    {(this.state.C2 === '2') &&
+                        <UncontrolledPopover trigger="legacy" placement="bottom" target="c21" isOpen={(this.state.C2C === '')}>
+                            <PopoverHeader>Capture the breaker!</PopoverHeader>
+                            <PopoverBody>
+                                <Button onClick={() => this.setC2C('1')}>{(this.state.C2 === '2') ? "B1 First" : "B2 First"}</Button>
+                                <Button onClick={() => this.setC2C('2')}>{(this.state.C2 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                                <Button onClick={() => this.setC2C('3')}>{(this.state.C2 === '2') ? "B1 Third" : "B2 Third"}</Button>
+                            </PopoverBody>
+                        </UncontrolledPopover>}
+
+                    {(this.state.C2 === '1') &&
+                        <UncontrolledPopover trigger="legacy" placement="top" target="c22" isOpen={(this.state.C2C === '')}>
+                            <PopoverHeader>Capture the breaker!</PopoverHeader>
+                            <PopoverBody>
+                                <Button onClick={() => this.setC2C('1')}>{(this.state.C2 === '2') ? "B1 First" : "B2 First"}</Button>
+                                <Button onClick={() => this.setC2C('2')}>{(this.state.C2 === '2') ? "B1 Second" : "B2 Second"}</Button>
+                                <Button onClick={() => this.setC2C('3')}>{(this.state.C2 === '2') ? "B1 Third" : "B2 Third"}</Button>
                             </PopoverBody>
                         </UncontrolledPopover>}
 
