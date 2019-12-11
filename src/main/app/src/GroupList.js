@@ -99,7 +99,7 @@ class GroupList extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-left">
-                        <Button color="primary" onClick={() => this.loadcomptrs}>LOAD</Button>
+                        <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
                     </div>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
