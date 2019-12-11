@@ -47,7 +47,7 @@ class GroupList extends Component {
 
     async loadcomptrs() {
 
-        const stuff = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": 10 * Math.random() };
+        const { stuff } = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": 10 * Math.random() };
         await fetch('/api/group', {
             method: 'POST',
             headers: {
