@@ -46,11 +46,12 @@ class GroupList extends Component {
     }
 
     async loadcomptrs() {
-        var sc1 = 10 * Math.random();
+        /*var sc1 = 10 * Math.random();
         var sc2 = 10 * Math.random();
         var sc3 = 10 * Math.random();
-        var sc = (sc1 + sc2 + sc3)/3;
-        const { stuff } = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": sc, "score1":sc1,"score2":sc2,"score3":sc3 };
+        var sc = (sc1 + sc2 + sc3)/3;*/
+        //const { stuff } = { "name": Math.random().toString(36).substring(2, 8), "address": "", "score": sc, "score1":sc1,"score2":sc2,"score3":sc3 };
+        const { stuff } = { "name": "John", "address": "", "score": 0.0, "score1":0.0,"score2":0.0,"score3":0.0 };
         await fetch('/api/group', {
             method: 'POST',
             headers: {
