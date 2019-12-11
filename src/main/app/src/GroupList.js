@@ -26,10 +26,10 @@ class GroupList extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(() => {
-            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
-            this.setState({ groups: updatedGroups });
         });
+        fetch('api/groups')
+        .then(response => response.json())
+        .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
     async removeall() {
@@ -49,7 +49,6 @@ class GroupList extends Component {
         this.removeall();
         var i;
         for (i = 0; i < 40; ++i) {
-
             var sc1 = 10 * Math.random();
             var sc2 = 10 * Math.random();
             var sc3 = 10 * Math.random();
