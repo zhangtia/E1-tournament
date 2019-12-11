@@ -45,6 +45,22 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
+    async loadcomptrs() {
+        for (i = 0; i < 40; ++i) {
+            await fetch('/api/group', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "name": Math.random().toString(36).substring(2, 8), "address": "", "score": 10 * Math.random() }),
+            });
+        }
+        fetch('api/groups')
+            .then(response => response.json())
+            .then(data => this.setState({ groups: data, isLoading: false }));
+    }
+
 
     render() {
         const { groups, isLoading } = this.state;
@@ -52,7 +68,7 @@ class GroupList extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
-//alert(groups.length);
+        //alert(groups.length);
         const groupList = groups.map(group => {
             return <tr key={group.id}>
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
@@ -78,6 +94,9 @@ class GroupList extends Component {
             <div>
                 <AppNavbar />
                 <Container fluid>
+                    <div className="float-left">
+                        <Button color="primary" onClick={() => this.loadcomptrs}>LOAD</Button>
+                    </div>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
                         <Button color="danger" id="delall">Delete All</Button>
