@@ -46,6 +46,7 @@ class GroupList extends Component {
     }
 
     async loadcomptrs() {
+        var i;
         for (i = 0; i < 40; ++i) {
             await fetch('/api/group', {
                 method: 'POST',
