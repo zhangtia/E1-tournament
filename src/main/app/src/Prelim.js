@@ -58,7 +58,7 @@ class Prelim extends Component {
 
         //groups.sort(this.custom_comp);
 
-        /*if (groups.length < 32) {
+        if (groups.length < 32) {
             return (
                 <div>
                     <AppNavbar />
@@ -68,7 +68,7 @@ class Prelim extends Component {
                     </Container>
                 </div>
             );
-        }*/
+        }
 
         const groupList = groups.map(group => {
             return <tr key={group.id}>

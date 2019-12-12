@@ -4,40 +4,55 @@ import AppNavbar from './AppNavbar';
 import './CTB.css';
 
 class CTBBattle extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            groups: [],
 
+            A1: '',
+            A1C: '#',
+            A2: '#',
+            A2C: '#',
+            A3: '#',
+            A3C: '#',
+            A4: '#',
+            A4C: '#',
+            A5: '#',
+            A5C: '#',
+            A6: '#',
+            A6C: '#',
+            A7: '#',
+            A7C: '#',
+            A8: '#',
+            A8C: '#',
 
-    state = {
-        A1: '',
-        A1C: '#',
-        A2: '#',
-        A2C: '#',
-        A3: '#',
-        A3C: '#',
-        A4: '#',
-        A4C: '#',
-        A5: '#',
-        A5C: '#',
-        A6: '#',
-        A6C: '#',
-        A7: '#',
-        A7C: '#',
-        A8: '#',
-        A8C: '#',
+            B1: '#',
+            B1C: "#",
+            B2: '#',
+            B2C: '#',
+            B3: '#',
+            B3C: '#',
+            B4: '#',
+            B4C: '#',
 
-        B1: '#',
-        B1C: "#",
-        B2: '#',
-        B2C: '#',
-        B3: '#',
-        B3C: '#',
-        B4: '#',
-        B4C: '#',
-
-        C1: '#',
-        C1C: '#',
-        C2: '#',
-        C2C: '#',
+            C1: '#',
+            C1C: '#',
+            C2: '#',
+            C2C: '#',
+        }
+        this.remove = this.remove.bind(this);
     }
+
+    componentDidMount() {
+        fetch('api/groups')
+            .then(response => response.json())
+            .then(data => this.setState({ groups: data }));
+    }
+
+    custom_comp(a, b) {
+        return b.score - a.score;
+    }
+
     /*onChange = (x) => {
         alert(x);
         this.setState({ color: 'green' });
@@ -217,12 +232,22 @@ class CTBBattle extends Component {
     }
 
     render() {
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
+        const arr = [];
+        hi.forEach(function (x) {
+            arr.push(x.name);
+        });
+
+        alert(hi);
+
         return (
             <div>
                 <AppNavbar />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>A11</Button></div>
-                    <div class="box a12" id="a12"><Button color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>A12</Button></div>
+                    <div class="box a11" id="a11"><Button color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>{arr[0]}</Button></div>
+                    <div class="box a12" id="a12"><Button color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{arr[1]}</Button></div>
                     <div class="box a21" id="a21"><Button color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
