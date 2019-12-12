@@ -4,9 +4,8 @@ import AppNavbar from './AppNavbar';
 import './CTB.css';
 
 class CTBBattle extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+
+        state = {
             groups: [],
 
             A1: '',
@@ -39,9 +38,8 @@ class CTBBattle extends Component {
             C1C: '#',
             C2: '#',
             C2C: '#',
-        }
-        this.remove = this.remove.bind(this);
-    }
+        };
+
 
     componentDidMount() {
         fetch('api/groups')
