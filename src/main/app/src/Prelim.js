@@ -91,7 +91,7 @@ class Prelim extends Component {
                 <AppNavbar />
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="primary" tag={Link} to={"/ctbbattle"}>THIS IS PRELIM IT WORKED</Button>
+                        <Button color="primary" tag={Link} to={"/ctbbattle"}>Start Battles</Button>
                     </div>
                     <h3>Competitors</h3>
                     <Table className="mt-4">
