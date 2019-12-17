@@ -92,8 +92,8 @@ class GroupList extends Component {
                 <td>{group.score}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="danger" id="delone" onClick={() => this.setdeltgt(group.id)}>Delete</Button>
-                        <UncontrolledPopover trigger="legacy" placement="left" target="delone" isOpen={this.state.opn}>
+                        <Button size="sm" color="danger" id={"delone"+group.id} onClick={() => this.setdeltgt(group.id)}>Delete</Button>
+                        <UncontrolledPopover trigger="legacy" placement="left" target={"delone"+this.state.deltarget} isOpen={this.state.opn}>
                             <PopoverHeader>CONFIRM DELETE</PopoverHeader>
                             <PopoverBody>
                                 <p>Delete competitor data, proceed?</p>
