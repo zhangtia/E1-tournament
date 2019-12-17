@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Array;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -43,6 +44,17 @@ class GroupController {
         Group result = groupRepository.save(group);
         return ResponseEntity.created(new URI("/api/group/" + result.getId()))
                 .body(result);
+    }
+
+    @PostMapping("/group/load")
+    ResponseEntity<Group> createGroup(@Valid @RequestBody Group[] group) throws URISyntaxException {
+        //log.info("Request to create group: {}", group);
+        for (int i = 0; i < group.length; ++i) {
+            Group result = groupRepository.save(group[i]);
+            ResponseEntity.created(new URI("/api/group/" + result.getId()))
+                .body(result);
+        }
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/group/{id}")
