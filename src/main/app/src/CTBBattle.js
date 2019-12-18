@@ -44,6 +44,8 @@ class CTBBattle extends Component {
         return b.score - a.score;
     }
 
+    arr = [];
+
     leftwin() {
         alert("hi");
         alert(arr.length);
@@ -63,7 +65,7 @@ class CTBBattle extends Component {
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
 
-        const arr = [];
+        //const arr = [];
         hi.forEach(function (x) {
             arr.push(x.name);
         });
