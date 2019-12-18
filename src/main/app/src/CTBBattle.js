@@ -31,15 +31,24 @@ class CTBBattle extends Component {
 
     state = {
         groups: [],
+        namearr: [],
         battle: 0
     };
-
-    namearr = [];
 
     componentDidMount() {
         fetch('api/groups')
             .then(response => response.json())
             .then(data => this.setState({ groups: data }));
+
+        
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
+        const arr = [];
+        hi.forEach(function (x) {
+            arr.push(x.name);
+        });
+        this.setState({ namearr : arr });
     }
 
     custom_comp(a, b) {
@@ -47,26 +56,24 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
+        const x = this.state.namearr;
         alert("hi");
-        alert(this.namearr.length);
-        this.namearr.push(this.namearr[0]);
-        alert(this.namearr.length);
+        alert(x.length);
+        x.push(x[0]);
+        alert(x.length);
+        this.setState({ namearr : x });
     }
 
     rightwin() {
-        alert("hi " + this.namearr.length);
-        this.namearr.push(this.namearr[0]);
-        alert(this.namearr.length);
+        const x = this.state.namearr;
+        alert("hi");
+        alert(x.length);
+        x.push(x[0]);
+        alert(x.length);
+        this.setState({ namearr : x });
     }
 
     render() {
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
-
-        //const arr = [];
-        hi.forEach(function (x) {
-            this.namearr.push(x.name);
-        });
 
         //alert(hi);
 
