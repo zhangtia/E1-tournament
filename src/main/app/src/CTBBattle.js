@@ -39,16 +39,6 @@ class CTBBattle extends Component {
         fetch('api/groups')
             .then(response => response.json())
             .then(data => this.setState({ groups: data }));
-
-        
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
-
-        const arr = [];
-        hi.forEach(function (x) {
-            arr.push(x.name);
-        });
-        this.setState({ namearr : arr });
     }
 
     custom_comp(a, b) {
@@ -61,7 +51,7 @@ class CTBBattle extends Component {
         alert(x.length);
         x.push(x[0]);
         alert(x.length);
-        this.setState({ namearr : x });
+        this.setState({ namearr: x });
     }
 
     rightwin() {
@@ -70,11 +60,19 @@ class CTBBattle extends Component {
         alert(x.length);
         x.push(x[0]);
         alert(x.length);
-        this.setState({ namearr : x });
+        this.setState({ namearr: x });
     }
 
     render() {
 
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
+        const arr = [];
+        hi.forEach(function (x) {
+            arr.push(x.name);
+        });
+        this.setState({ namearr: arr });
         //alert(hi);
 
         return (
