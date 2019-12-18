@@ -31,7 +31,6 @@ class CTBBattle extends Component {
 
     state = {
         groups: [],
-        namearr: [],
         battle: 0
     };
 
@@ -47,15 +46,15 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
-        alert(this.state.namearr.length);
-        this.state.namearr.push(this.state.namearr[0]);
-        alert(this.state.namearr.length);
+        alert(this.state.groups.length);
+        this.state.grousp.push(this.state.groups[0]);
+        alert(this.state.groups.length);
     }
 
     rightwin() {
-        alert(this.state.namearr.length);
-        this.state.namearr.push(this.state.namearr[0]);
-        alert(this.state.namearr.length);
+        alert(this.state.groups.length);
+        this.state.groups.push(this.state.groups[0]);
+        alert(this.state.groups.length);
     }
 
     render() {
@@ -66,7 +65,6 @@ class CTBBattle extends Component {
         hi.forEach(function (x) {
             arr.push(x.name);
         });
-        this.setState({ namearr: arr });
 
         //alert(hi);
 
