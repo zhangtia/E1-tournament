@@ -12,7 +12,7 @@ class Home extends Component {
         <AppNavbar/>
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample/>
+          <ModalExample buttonLabel={"custom stuff"} custom={false}/>
         </Container>
       </div>
     );
