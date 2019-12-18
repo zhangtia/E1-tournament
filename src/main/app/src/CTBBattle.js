@@ -44,7 +44,7 @@ class CTBBattle extends Component {
         return b.score - a.score;
     }
 
-    arr = [];
+    static arr = [];
 
     leftwin() {
         alert("hi");
