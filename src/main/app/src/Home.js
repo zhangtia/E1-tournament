@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
+import React, { useState } from 'react';
+import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ModalExample = (props) => {
   const {
