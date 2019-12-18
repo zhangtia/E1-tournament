@@ -84,7 +84,7 @@ class CTBBattle extends Component {
     render() {
 
         //alert(hi);
-        this.createNamearr;
+        this.createNamearr();
 
         return (
             <div>
