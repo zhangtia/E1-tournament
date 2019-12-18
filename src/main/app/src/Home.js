@@ -26,6 +26,7 @@ const ModalExample = (props, { fnct }) => {
 
   return (
     <div>
+      <Button color="primary" onClick={fnct}>Do Something</Button>
       <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>header</ModalHeader>
@@ -50,6 +51,7 @@ class Home extends Component {
   }
 
   fnc = () => {
+    alert("fnc!");
     this.setState(state => ({ isShow: "NEWWWWWWWW" }));
   }
 
