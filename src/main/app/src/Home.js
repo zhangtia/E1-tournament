@@ -6,13 +6,25 @@ import { Button, Container } from 'reactstrap';
 import ModalExample from './CTBBattle.js'
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShow: "PREVIOUS",
+    };
+  }
+
+  fnc() {
+    this.setState(state => ({ isShow: "NEWWWWWWWW" }));
+  }
+
   render() {
     return (
       <div>
-        <AppNavbar/>
+        <AppNavbar />
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample buttonLabel={"custom stuff"} custom={false}/>
+          <ModalExample buttonLabel={"custom stuff"} custom={fnc} />
+          <div>{this.state.isShow}</div>
         </Container>
       </div>
     );
