@@ -5,12 +5,19 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const ModalExample = (props) => {
+const ModalExample = (/*props*/{ fnct }) => {
+
   const {
     buttonLabel,
     custom,
     className
   } = props;
+
+  <button onClick={fnct} type="button">
+    Toggle Show
+</button>
+
+  /*
 
   const [modal, setModal] = useState(false);
 
@@ -30,7 +37,7 @@ const ModalExample = (props) => {
         </ModalFooter>
       </Modal>
     </div>
-  );
+  );*/
 }
 
 class Home extends Component {
@@ -41,7 +48,7 @@ class Home extends Component {
     };
   }
 
-  fnc() {
+  fnc = () => {
     this.setState(state => ({ isShow: "NEWWWWWWWW" }));
   }
 
@@ -51,7 +58,7 @@ class Home extends Component {
         <AppNavbar />
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample buttonLabel={"custom stuff"} custom={this.fnc} />
+          <ModalExample fnct={this.fnc} />
           <Button onClick={() => alert(this.state.isShow)}>HELLO</Button>
         </Container>
       </div>
