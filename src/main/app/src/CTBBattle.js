@@ -31,6 +31,7 @@ class CTBBattle extends Component {
 
     state = {
         groups: [],
+        namearr: [],
         battle: 0
     };
 
@@ -40,44 +41,58 @@ class CTBBattle extends Component {
             .then(data => this.setState({ groups: data }));
     }
 
+    createNamearr() {
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
+        const arr = [];
+        hi.forEach(function (x) {
+            arr.push(x.name);
+        });
+        this.setState({ namearr : arr});
+        alert("created namearr");
+    }
+
     custom_comp(a, b) {
         return b.score - a.score;
     }
 
-    static arr = [];
-
     leftwin() {
         alert("hi");
-        alert(arr.length);
-        arr.push(arr[0]);
-        alert(arr.length);
+        const hi = this.state.namearr;
+        const r = [];
+        hi.forEach(function (x) {
+            r.push(x);
+        });
+        r.push(hi[2]);
+        this.setState({ namearr : r });
+        alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
     rightwin() {
         alert("hi");
-        alert(arr.length);
-        arr.push(arr[0]);
-        alert(arr.length);
+        const hi = this.state.namearr;
+        const r = [];
+        hi.forEach(function (x) {
+            r.push(x);
+        });
+        r.push(hi[2]);
+        this.setState({ namearr : r });
+        alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
     render() {
 
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
-
-        //const arr = [];
-        hi.forEach(function (x) {
-            arr.push(x.name);
-        });
         //alert(hi);
+        this.createNamearr;
 
         return (
             <div>
                 <AppNavbar />
                 <Modalll left={this.leftwin} right={this.rightwin} />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>{arr[0]}</p><p>{arr[1]}</p></Button></div>
-                    <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{arr[1]} + "\n" +{arr[2]} + "\n" +{arr[3]}</Button></div>
+                    <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>smth</p></Button></div>
+                    <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>smth</Button></div>
                     <div class="box a21" id="a21"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
