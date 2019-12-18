@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const ModalExample = ({ fnct }) => {
+const ModalExample = ({ fnct, anoth }) => {
   /*return (
     <Button onClick={fnct} type="button">
       Toggle Show
@@ -26,7 +26,7 @@ const ModalExample = ({ fnct }) => {
 
   return (
     <div>
-      <Button color="primary" onClick={fnct}>Do Something</Button>
+      <Button color="primary" onClick={anoth}>Do Something</Button>
       <Button color="danger" onClick={toggle}>open</Button>
       <Modal isOpen={modal} toggle={toggle} className="its 4am">
         <ModalHeader toggle={toggle}>header</ModalHeader>
@@ -51,8 +51,13 @@ class Home extends Component {
   }
 
   fnc = () => {
-    alert("fnc!");
+    //alert("fnc!");
     this.setState(state => ({ isShow: "NEWWWWWWWW" }));
+  }
+
+  anotha = () => {
+    //alert("fnc!");
+    this.setState(state => ({ isShow: "ANOTHA ONE" }));
   }
 
   render() {
@@ -61,7 +66,7 @@ class Home extends Component {
         <AppNavbar />
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample fnct={this.fnc} buttonLabel="work pls" />
+          <ModalExample fnct={this.fnc} anoth={this.anotha} />
           <Button onClick={() => alert(this.state.isShow)}>HELLO</Button>
         </Container>
       </div>
