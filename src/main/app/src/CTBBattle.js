@@ -39,6 +39,8 @@ class CTBBattle extends Component {
         fetch('api/groups')
             .then(response => response.json())
             .then(data => this.setState({ groups: data }));
+        this.createNamearr();
+
     }
 
     createNamearr() {
@@ -49,7 +51,7 @@ class CTBBattle extends Component {
         hi.forEach(function (x) {
             arr.push(x.name);
         });
-        this.setState({ namearr : arr});
+        this.setState({ namearr: arr });
         alert("created namearr");
     }
 
@@ -65,7 +67,7 @@ class CTBBattle extends Component {
             r.push(x);
         });
         r.push(hi[2]);
-        this.setState({ namearr : r });
+        this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
@@ -77,15 +79,13 @@ class CTBBattle extends Component {
             r.push(x);
         });
         r.push(hi[2]);
-        this.setState({ namearr : r });
+        this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
     render() {
 
         //alert(hi);
-        this.createNamearr();
-
         return (
             <div>
                 <AppNavbar />
