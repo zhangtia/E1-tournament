@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
-const Modal = ({ left, right }) => {
+const Modalll = ({ left, right }) => {
 
     const [modal, setModal] = useState(false);
 
@@ -73,7 +73,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modal left={this.leftwin} right={this.rightwin} />
+                <Modalll left={this.leftwin} right={this.rightwin} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>{arr[0]}</p><p>{arr[1]}</p></Button></div>
                     <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{arr[1]} + "\n" +{arr[2]} + "\n" +{arr[3]}</Button></div>
