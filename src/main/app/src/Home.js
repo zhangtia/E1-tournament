@@ -6,6 +6,13 @@ import { useState } from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ModalExample = (/*props*/{ fnct }) => {
+return (
+  <button onClick={fnct} type="button">
+    Toggle Show
+</button>
+);
+
+  /*
 
   const {
     buttonLabel,
@@ -13,11 +20,6 @@ const ModalExample = (/*props*/{ fnct }) => {
     className
   } = props;
 
-  <button onClick={fnct} type="button">
-    Toggle Show
-</button>
-
-  /*
 
   const [modal, setModal] = useState(false);
 
