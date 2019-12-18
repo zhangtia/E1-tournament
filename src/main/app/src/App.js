@@ -19,7 +19,7 @@ class App extends Component {
           <Route path='/groups/:id' component={GroupEdit}/>
           <Route path='/prelim' exact={true} component={Prelim}/>
           <Route path='/prelim/:id' component={PrelimEdit}/>
-          <Route path='/ctbbattle' exact={true} component={CTB}/>
+          <Route path='/ctbbattle' exact={true} component={CTBBattle}/>
         </Switch>
       </Router>
     )
