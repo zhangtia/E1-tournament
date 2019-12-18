@@ -31,7 +31,6 @@ class CTBBattle extends Component {
 
     state = {
         groups: [],
-        namearr: [],
         battle: 0
     };
 
@@ -46,21 +45,17 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
-        const x = this.state.namearr;
         alert("hi");
-        alert(x.length);
-        x.push(x[0]);
-        alert(x.length);
-        this.setState({ namearr: x });
+        alert(arr.length);
+        arr.push(arr[0]);
+        alert(arr.length);
     }
 
     rightwin() {
-        const x = this.state.namearr;
         alert("hi");
-        alert(x.length);
-        x.push(x[0]);
-        alert(x.length);
-        this.setState({ namearr: x });
+        alert(arr.length);
+        arr.push(arr[0]);
+        alert(arr.length);
     }
 
     render() {
@@ -72,7 +67,6 @@ class CTBBattle extends Component {
         hi.forEach(function (x) {
             arr.push(x.name);
         });
-        this.setState({ namearr: arr });
         //alert(hi);
 
         return (
@@ -80,8 +74,8 @@ class CTBBattle extends Component {
                 <AppNavbar />
                 <Modalll left={this.leftwin} right={this.rightwin} />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></Button></div>
-                    <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{this.state.namearr[1]} + "\n" +{this.state.namearr[2]} + "\n" +{this.state.namearr[3]}</Button></div>
+                    <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>{arr[0]}</p><p>{arr[1]}</p></Button></div>
+                    <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{arr[1]} + "\n" +{arr[2]} + "\n" +{arr[3]}</Button></div>
                     <div class="box a21" id="a21"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
