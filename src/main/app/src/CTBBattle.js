@@ -46,12 +46,14 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
+        alert("hi");
         alert(this.state.groups.length);
-        this.state.grousp.push(this.state.groups[0]);
+        this.state.groups.push(this.state.groups[0]);
         alert(this.state.groups.length);
     }
 
     rightwin() {
+        alert("hi");
         alert(this.state.groups.length);
         this.state.groups.push(this.state.groups[0]);
         alert(this.state.groups.length);
