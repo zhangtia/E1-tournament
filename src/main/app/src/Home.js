@@ -13,7 +13,7 @@ class Home extends Component {
     };
   }
 
-  fnc = () => {
+  fnc() {
     this.setState(state => ({ isShow: "NEWWWWWWWW" }));
   }
 
@@ -23,7 +23,7 @@ class Home extends Component {
         <AppNavbar />
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample buttonLabel={"custom stuff"} custom={fnc} />
+          <ModalExample buttonLabel={"custom stuff"} custom={this.fnc} />
           <div>{this.state.isShow}</div>
         </Container>
       </div>
