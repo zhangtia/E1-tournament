@@ -13,7 +13,7 @@ class Home extends Component {
     };
   }
 
-  fnc() {
+  fnc = () => {
     this.setState(state => ({ isShow: "NEWWWWWWWW" }));
   }
 
