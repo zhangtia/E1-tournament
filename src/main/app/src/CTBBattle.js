@@ -34,6 +34,7 @@ class CTBBattle extends Component {
         battle: 0
     };
 
+    namearr = [];
 
     componentDidMount() {
         fetch('api/groups')
@@ -47,24 +48,24 @@ class CTBBattle extends Component {
 
     leftwin() {
         alert("hi");
-        alert(this.state.groups.length);
-        this.state.groups.push(this.state.groups[0]);
-        alert(this.state.groups.length);
+        alert(this.namearr.length);
+        this.namearr.push(this.namearr[0]);
+        alert(this.namearr.length);
     }
 
     rightwin() {
-        alert("hi " + (this.state.groups).length);
-        this.state.groups.push(this.state.groups[0]);
-        alert(this.state.groups.length);
+        alert("hi " + this.namearr.length);
+        this.namearr.push(this.namearr[0]);
+        alert(this.namearr.length);
     }
 
     render() {
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
 
-        const arr = [];
+        //const arr = [];
         hi.forEach(function (x) {
-            arr.push(x.name);
+            namearr.push(x.name);
         });
 
         //alert(hi);
