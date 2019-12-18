@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
@@ -46,15 +47,15 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
-        alert(namearr.length);
-        namearr.push(namearr[0]);
-        alert(namearr.length);
+        alert(this.state.namearr.length);
+        this.state.namearr.push(this.state.namearr[0]);
+        alert(this.state.namearr.length);
     }
 
     rightwin() {
-        alert(namearr.length);
-        namearr.push(namearr[0]);
-        alert(namearr.length);
+        alert(this.state.namearr.length);
+        this.state.namearr.push(this.state.namearr[0]);
+        alert(this.state.namearr.length);
     }
 
     render() {
