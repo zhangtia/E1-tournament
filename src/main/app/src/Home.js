@@ -24,7 +24,7 @@ class Home extends Component {
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
           <ModalExample buttonLabel={"custom stuff"} custom={this.fnc} />
-          <Button onClick={() => this.alert(this.state.isShow)}>HELLO</Button>
+          <Button onClick={() => alert(this.state.isShow)}>HELLO</Button>
         </Container>
       </div>
     );
