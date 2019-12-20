@@ -10,6 +10,10 @@ const Modalll = ({ left, right }) => {
 
     const toggle = () => setModal(!modal);
 
+    sendData = () => {
+        this.props.parentCallback("Hey Popsie, How’s it going?");
+    }
+
     return (
         <div>
             <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
@@ -19,8 +23,8 @@ const Modalll = ({ left, right }) => {
                     stuff
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={left}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={right}>Team 2</Button>
+                    <Button color="primary" onClick={sendData}>Team 1</Button>{' '}
+                    <Button color="primary" onClick={sendData}>Team 2</Button>
                 </ModalFooter>
             </Modal>
         </div>
@@ -87,13 +91,17 @@ class CTBBattle extends Component {
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
+    callbackFunction = (childData) => {
+        alert(childData);
+    }
+
     render() {
 
         //alert(hi);
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} />
+                <Modalll parentCallback={this.callbackFunction} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>smth</p></Button></div>
                     <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>smth</Button></div>
