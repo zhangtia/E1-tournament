@@ -61,24 +61,28 @@ class CTBBattle extends Component {
 
     leftwin() {
         alert("hi");
-        const hi = this.state.namearr;
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
         const r = [];
         hi.forEach(function (x) {
-            r.push(x);
+            r.push(x.name);
         });
-        r.push(hi[2]);
+        r.push(r[2]);
         this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
 
     rightwin() {
         alert("hi");
-        const hi = this.state.namearr;
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
         const r = [];
         hi.forEach(function (x) {
-            r.push(x);
+            r.push(x.name);
         });
-        r.push(hi[2]);
+        r.push(r[2]);
         this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
     }
