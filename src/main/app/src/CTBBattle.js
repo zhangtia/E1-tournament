@@ -4,28 +4,6 @@ import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
-const Modalll = ({ left, right }) => {
-
-    const [modal, setModal] = useState(false);
-
-    const toggle = () => setModal(!modal);
-
-    return (
-        <div>
-            <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
-            <Modal isOpen={modal} toggle={toggle} className="its 4am">
-                <ModalHeader toggle={toggle}>header</ModalHeader>
-                <ModalBody>
-                    stuff
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={left}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={right}>Team 2</Button>
-                </ModalFooter>
-            </Modal>
-        </div>
-    );
-}
 
 class CTBBattle extends Component {
 
@@ -60,7 +38,7 @@ class CTBBattle extends Component {
         return b.score - a.score;
     }
 
-    leftwin() {
+    /*leftwin() {
         alert("pls no");
         this.setState(state => ({ isShow: !state.isShow }));
         //alert(this.state.isShow);
@@ -70,7 +48,7 @@ class CTBBattle extends Component {
     rightwin(x) {
         this.setState(state => ({ battle : x }));
 
-        /*
+        
         alert("hi");
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
@@ -82,7 +60,30 @@ class CTBBattle extends Component {
         r.push(r[2]);
         this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
-        */
+        
+    }*/
+
+    Modalll = () => {
+
+        const [modal, setModal] = useState(false);
+    
+        const toggle = () => setModal(!modal);
+    
+        return (
+            <div>
+                <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
+                <Modal isOpen={modal} toggle={toggle} className="its 4am">
+                    <ModalHeader toggle={toggle}>header</ModalHeader>
+                    <ModalBody>
+                        stuff
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={alert("hi")}>Team 1</Button>{' '}
+                        <Button color="primary" onClick={alert("bye")}>Team 2</Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
+        );
     }
 
     render() {
@@ -91,7 +92,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin(3)} />
+                <Modalll/>
                 <div class="wrapper">
                     <div class="box a11" id="a11"><Button onClick={() => alert(this.state.isShow)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>smth</p></Button></div>
                     <div class="box a12" id="a12"><Button onClick={() => alert(this.state.battle)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>smth</Button></div>
