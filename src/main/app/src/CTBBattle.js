@@ -53,7 +53,7 @@ class CTBBattle extends Component {
             arr.push(x.name);
         });
         this.setState({ namearr: arr });
-        alert("created namearr");
+        //alert("created namearr");
     }
 
     custom_comp(a, b) {
@@ -61,7 +61,7 @@ class CTBBattle extends Component {
     }
 
     leftwin() {
-        //alert(this.state.isShow);
+        alert("pls no");
         this.setState(state => ({ isShow: !state.isShow }));
         //alert(this.state.isShow);
 
