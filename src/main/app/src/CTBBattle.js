@@ -103,6 +103,7 @@ class CTBBattle extends Component {
         // do something with value in parent component, like save to state
         alert(count);
         this.setState({ battle : count });
+        this.setState({ isShow: true });
     }
 
     render() {
