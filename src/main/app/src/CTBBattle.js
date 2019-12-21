@@ -111,7 +111,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <EnhancedTable parentCallback={this.callback} />         
+                <EnhancedTable parentCallback={this.leftwin} />         
                 <div class="wrapper">
                     <div class="box a11" id="a11"><Button onClick={() => alert(this.state.isShow)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}><p>smth</p></Button></div>
                     <div class="box a12" id="a12"><Button onClick={() => alert(this.state.battle)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>smth</Button></div>
