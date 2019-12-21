@@ -53,7 +53,9 @@ class CTBBattle extends Component {
     componentDidMount() {
         fetch('api/groups')
             .then(response => response.json())
-            .then(data => this.setState({ groups: data }));
+            .then(data => this.setState({ groups: data }))
+            .then(this.createNamearr())
+            .then(alert("done!"));
         //this.createNamearr();
 
     }
@@ -124,7 +126,7 @@ class CTBBattle extends Component {
             arr.push(x.name);
         });
 
-        this.createNamearr();
+        //this.createNamearr();
 
         //alert(hi);
         return (
