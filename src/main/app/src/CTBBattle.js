@@ -19,8 +19,8 @@ const Modalll = ({ left, right }) => {
                     stuff
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={left}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={right}>Team 2</Button>
+                    <Button color="primary" onClick={() => {left()}}>Team 1</Button>{' '}
+                    <Button color="primary" onClick={() => {right(3)}}>Team 2</Button>
                 </ModalFooter>
             </Modal>
         </div>
@@ -74,15 +74,15 @@ class CTBBattle extends Component {
         return b.score - a.score;
     }
 
-    leftwin() {
+    leftwin = () => {
         alert("pls no");
         this.setState({ isShow: true });
         alert("yes pls");
 
     }
 
-    rightwin(x) {
-        this.setState(state => ({ battle : x }));
+    rightwin = (x) => {
+        this.setState({ battle : x });
 
         /*
         alert("hi");
@@ -112,7 +112,8 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <EnhancedTable parentCallback={this.callback} />         
+                <EnhancedTable parentCallback={this.callback} /> 
+                <Modalll left={this.leftwin} right={this.rightwin} />        
                 <div class="wrapper">
                     <div class="box a11" id="a11"><Button onClick={() => alert(this.state.isShow)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'}><p>smth</p></Button></div>
                     <div class="box a12" id="a12"><Button onClick={() => alert(this.state.battle)} style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>smth</Button></div>
