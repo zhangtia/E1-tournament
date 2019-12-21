@@ -79,12 +79,6 @@ class CTBBattle extends Component {
         this.setState({ isShow: true });
         alert("yes pls");
 
-    }
-
-    rightwin = (x) => {
-        this.setState({ battle : x });
-
-        /*
         alert("hi");
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
@@ -96,7 +90,25 @@ class CTBBattle extends Component {
         r.push(r[2]);
         this.setState({ namearr: r });
         alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
-        */
+
+    }
+
+    rightwin = () => {
+        //this.setState({ battle : x });
+
+        
+        alert("hi");
+        const hi = this.state.groups;
+        hi.sort(this.custom_comp);
+
+        const r = [];
+        hi.forEach(function (x) {
+            r.push(x.name);
+        });
+        r.push(r[2]);
+        this.setState({ namearr: r });
+        alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
+        
     }
 
     callback = (count) => {
