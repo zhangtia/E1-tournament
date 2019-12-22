@@ -21,8 +21,8 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray }) => {
                     Pick the winner
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{battlenumber}</Button>{' '}
-                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{namearray[0]}</Button>
+                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber*4)] + ", " + namearray[(battlenumber*4)+1] : "else"}</Button>{' '}
+                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber*4)+2] + ", " + namearray[(battlenumber*4)+3] : "else"}</Button>
                 </ModalFooter>
             </Modal>
 
