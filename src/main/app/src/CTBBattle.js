@@ -297,10 +297,10 @@ class CTBBattle extends Component {
                     <div class="box b41" id="b41"><p>{this.state.namearr[50]}</p><p>{this.state.namearr[51]}</p><p>{this.state.namearr[52]}</p></div>
                     <div class="box b42" id="b42"><p>{this.state.namearr[53]}</p><p>{this.state.namearr[54]}</p><p>{this.state.namearr[55]}</p></div>
 
-                    <div class="box c12" id="c12"><p>{this.state.namearr[56]}</p><p>{this.state.namearr[57]}</p><p>{this.state.namearr[58]}</p><p>{this.state.namearr[59]}</p></div>
-                    <div class="box c11" id="c11"><p>{this.state.namearr[60]}</p><p>{this.state.namearr[61]}</p><p>{this.state.namearr[62]}</p><p>{this.state.namearr[63]}</p></div>
-                    <div class="box c22" id="c22"><p>{this.state.namearr[64]}</p><p>{this.state.namearr[65]}</p><p>{this.state.namearr[66]}</p><p>{this.state.namearr[67]}</p></div>
-                    <div class="box c21" id="c21"><p>{this.state.namearr[68]}</p><p>{this.state.namearr[69]}</p><p>{this.state.namearr[70]}</p><p>{this.state.namearr[71]}</p></div>
+                    <div class="box c11" id="c11"><p>{this.state.namearr[56]}</p><p>{this.state.namearr[57]}</p><p>{this.state.namearr[58]}</p><p>{this.state.namearr[59]}</p></div>
+                    <div class="box c12" id="c12"><p>{this.state.namearr[60]}</p><p>{this.state.namearr[61]}</p><p>{this.state.namearr[62]}</p><p>{this.state.namearr[63]}</p></div>
+                    <div class="box c21" id="c21"><p>{this.state.namearr[64]}</p><p>{this.state.namearr[65]}</p><p>{this.state.namearr[66]}</p><p>{this.state.namearr[67]}</p></div>
+                    <div class="box c22" id="c22"><p>{this.state.namearr[68]}</p><p>{this.state.namearr[69]}</p><p>{this.state.namearr[70]}</p><p>{this.state.namearr[71]}</p></div>
 
                     <div class="box final1"><p>{this.state.namearr[72]}</p><p>{this.state.namearr[73]}</p><p>{this.state.namearr[74]}</p><p>{this.state.namearr[75]}</p><p>{this.state.namearr[76]}</p></div>
                     <div class="box final2"><p>{this.state.namearr[77]}</p><p>{this.state.namearr[78]}</p><p>{this.state.namearr[79]}</p><p>{this.state.namearr[80]}</p><p>{this.state.namearr[81]}</p></div>
