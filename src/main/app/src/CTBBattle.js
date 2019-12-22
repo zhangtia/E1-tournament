@@ -61,7 +61,7 @@ class CTBBattle extends Component {
                     arr.push(x.name);
                     alert("k");
                 });
-                this.setState({ groups: data, namearr: arr };
+                this.setState({ groups: data, namearr: arr });
                 alert("jkn");
             })
             //.then(alert(data))
