@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
-const Modalll = ({ left, right, leftc, rightc }) => {
+const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray }) => {
 
     const [modal, setModal] = useState(false);
     const [modalc, setModalc] = useState(false);
@@ -21,8 +21,8 @@ const Modalll = ({ left, right, leftc, rightc }) => {
                     Pick the winner
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>Team 2</Button>
+                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{battlenumber}</Button>{' '}
+                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{namearray[0]}</Button>
                 </ModalFooter>
             </Modal>
 
@@ -195,7 +195,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} />
+                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
                     <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
