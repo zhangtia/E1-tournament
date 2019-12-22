@@ -195,7 +195,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} />
+                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
                     <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
