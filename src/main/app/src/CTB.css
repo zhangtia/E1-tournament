@@ -8,6 +8,14 @@
 }
 
 .box {
+    background-color: blue;
+    color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 150%;
+}
+
+.boxfill {
     background-color: rgba(255, 255, 255, 0);
     color: rgba(255, 255, 255, 0);
     border-radius: 5px;

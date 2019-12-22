@@ -27,7 +27,7 @@ const Modalll = ({ left, right }) => {
     );
 };
 
-const EnhancedTable = ({ parentCallback }) => {
+/*const EnhancedTable = ({ parentCallback }) => {
     const [count, setCount] = useState(0);
     
     return (
@@ -39,7 +39,7 @@ const EnhancedTable = ({ parentCallback }) => {
              Click me {count}
         </button>
     )
-};
+};*/
 
 class CTBBattle extends Component {
 
@@ -60,11 +60,12 @@ class CTBBattle extends Component {
                 data.forEach(function (x) {
                     arr.push(x.name);
                 });
+                arr.sort(this.custom_comp);
                 this.setState({ groups: data, namearr: arr });
             });
     }
 
-    createNamearr = () => {
+    /*createNamearr = () => {
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
 
@@ -73,16 +74,14 @@ class CTBBattle extends Component {
             arr.push(x.name);
         });
         this.setState({ namearr: arr });
-        //alert("created namearr");
-    }
+        alert("created namearr");
+    }*/
 
     custom_comp(a, b) {
         return b.score - a.score;
     }
 
     leftwin = () => {
-
-        alert("hi");
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
 
@@ -97,10 +96,6 @@ class CTBBattle extends Component {
     }
 
     rightwin = () => {
-        //this.setState({ battle : x });
-
-        
-        alert("hi");
         const hi = this.state.groups;
         hi.sort(this.custom_comp);
 
@@ -114,12 +109,12 @@ class CTBBattle extends Component {
         
     }
 
-    callback = (count) => {
+    /*callback = (count) => {
         // do something with value in parent component, like save to state
         alert(count);
         this.setState({ battle : count });
         this.setState({ isShow: true });
-    }
+    }*/
 
     render() {
         const hi = this.state.groups;
@@ -131,15 +126,13 @@ class CTBBattle extends Component {
         });
 
         //this.createNamearr();
-
-        //alert(hi);
         return (
             <div>
                 <AppNavbar />
                 <Modalll left={this.leftwin} right={this.rightwin} />        
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '1' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('1')}>{this.state.namearr[2]}</Button></div>
-                    <div class="box a12" id="a12"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1 === '2' || this.state.A1C === '1' || this.state.A1C === '2'} onClick={() => this.setA1('2')}>{this.state.namearr[40]}</Button></div>
+                    <div class="box a11" id="a11">{this.state.namearr[2]}</div>
+                    <div class="box a12" id="a12">{this.state.namearr[40]}</div>
                     <div class="box a21" id="a21"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
@@ -172,14 +165,14 @@ class CTBBattle extends Component {
                     <div class="box final1">FINAL1</div>
                     <div class="box final2">FINAL2</div>
 
-                    <div class="box a1fill" id="a1fill">&nbsp;</div>
-                    <div class="box a2fill" id="a2fill">&nbsp;</div>
-                    <div class="box a3fill" id="a3fill">&nbsp;</div>
-                    <div class="box a4fill" id="a4fill">&nbsp;</div>
-                    <div class="box a5fill" id="a5fill">&nbsp;</div>
-                    <div class="box a6fill" id="a6fill">&nbsp;</div>
-                    <div class="box a7fill" id="a7fill">&nbsp;</div>
-                    <div class="box a8fill" id="a8fill">&nbsp;</div>
+                    <div class="boxfill a1fill" id="a1fill">&nbsp;</div>
+                    <div class="boxfill a2fill" id="a2fill">&nbsp;</div>
+                    <div class="boxfill a3fill" id="a3fill">&nbsp;</div>
+                    <div class="boxfill a4fill" id="a4fill">&nbsp;</div>
+                    <div class="boxfill a5fill" id="a5fill">&nbsp;</div>
+                    <div class="boxfill a6fill" id="a6fill">&nbsp;</div>
+                    <div class="boxfill a7fill" id="a7fill">&nbsp;</div>
+                    <div class="boxfill a8fill" id="a8fill">&nbsp;</div>
 
 
 
