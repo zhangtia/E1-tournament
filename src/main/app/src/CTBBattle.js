@@ -21,8 +21,8 @@ const Modalll = ({ left, right }) => {
                     Pick the winner
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => {left(); toggle; togglec;}}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={() => {right(); toggle; togglec;}}>Team 2</Button>
+                    <Button color="primary" onClick={() => {left(); toggle(); togglec();}}>Team 1</Button>{' '}
+                    <Button color="primary" onClick={() => {right(); toggle(); togglec();}}>Team 2</Button>
                 </ModalFooter>
             </Modal>
 
