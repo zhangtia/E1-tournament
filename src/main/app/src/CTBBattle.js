@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
-const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray }) => {
+const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam }) => {
 
     const [modal, setModal] = useState(false);
     const [modalc, setModalc] = useState(false);
@@ -21,8 +21,8 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray }) => {
                     Pick the winner
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber*4)] + ", " + namearray[(battlenumber*4)+1] : "else"}</Button>{' '}
-                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber*4)+2] + ", " + namearray[(battlenumber*4)+3] : "else"}</Button>
+                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4)] + ", " + namearray[(battlenumber * 4) + 1] : "else"}</Button>{' '}
+                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4) + 2] + ", " + namearray[(battlenumber * 4) + 3] : "else"}</Button>
                 </ModalFooter>
             </Modal>
 
@@ -32,8 +32,8 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray }) => {
                     Capture!
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>Team 2</Button>
+                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : /* else top team won*/ namearray[(battlenumber * 4) + 2]}</Button>{' '}
+                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : /* else top team won*/ namearray[(battlenumber * 4) + 2]}</Button>
                 </ModalFooter>
             </Modal>
         </div>
@@ -100,8 +100,12 @@ class CTBBattle extends Component {
         const btlnbr = this.state.battle;
 
         const r = [];
+        var count = 0;
         hi.forEach(function (x) {
-            r.push(x);
+            if (btlnbr < 8 && (count < (32 + (3 * btlnbr)))) {
+                r.push(x);
+            }
+            ++count;
         });
         var indx;
         if (btlnbr < 8) {
@@ -119,8 +123,12 @@ class CTBBattle extends Component {
         const btlnbr = this.state.battle;
 
         const r = [];
+        var count = 0;
         hi.forEach(function (x) {
-            r.push(x);
+            if (btlnbr < 8 && (count < (32 + (3 * btlnbr)))) {
+                r.push(x);
+            }
+            ++count;
         });
         var indx;
         if (btlnbr < 8) {
@@ -195,7 +203,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} />
+                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
                     <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
