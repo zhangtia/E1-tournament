@@ -7,16 +7,29 @@ import './CTB.css';
 const Modalll = ({ left, right }) => {
 
     const [modal, setModal] = useState(false);
+    const [modalc, setModalc] = useState(false);
 
     const toggle = () => setModal(!modal);
+    const togglec = () => setModalc(!modalc);
 
     return (
         <div>
             <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
-            <Modal isOpen={modal} toggle={toggle} className="its 4am">
-                <ModalHeader toggle={toggle}>header</ModalHeader>
+            <Modal isOpen={modal} toggle={toggle} className="WINNER">
+                <ModalHeader toggle={toggle}>Battle Winner</ModalHeader>
                 <ModalBody>
-                    stuff
+                    Pick the winner
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={() => {left(); toggle; togglec;}}>Team 1</Button>{' '}
+                    <Button color="primary" onClick={() => {right(); toggle; togglec;}}>Team 2</Button>
+                </ModalFooter>
+            </Modal>
+
+            <Modal isOpen={modalc} toggle={togglec} className="CAPTURE">
+                <ModalHeader toggle={togglec}>Capture the Breaker!</ModalHeader>
+                <ModalBody>
+                    Capture!
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={() => {left()}}>Team 1</Button>{' '}
@@ -58,8 +71,9 @@ class CTBBattle extends Component {
             .then(data => {
                 const arr = [];
                 data.sort(this.custom_comp);
+                var i = 0;
                 data.forEach(function (x) {
-                    arr.push(x.name);
+                    if (i < 32) {arr.push(x.name);++i;}
                 });
                 this.setState({ groups: data, namearr: arr });
             });
@@ -82,30 +96,34 @@ class CTBBattle extends Component {
     }
 
     leftwin = () => {
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
+        const hi = this.state.namearr;
+        const btlnbr = this.state.battle;
 
         const r = [];
         hi.forEach(function (x) {
-            r.push(x.name);
+            r.push(x);
         });
-        r.push(r[2]);
+        var indx;
+        if (btlnbr < 8) {
+            indx = btlnbr * 4;
+        }
+        r.push(r[indx]);
+        r.push(r[indx + 1]);
         this.setState({ namearr: r });
-        alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
+        alert(this.state.namearr[2] + " - and - " + this.state.namearr[32]);
 
     }
 
     rightwin = () => {
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
+        const hi = this.state.namearr;
 
         const r = [];
         hi.forEach(function (x) {
-            r.push(x.name);
+            r.push(x);
         });
         r.push(r[2]);
         this.setState({ namearr: r });
-        alert(this.state.namearr[2] + " - and - " + this.state.namearr[40]);
+        alert(this.state.namearr[2] + " - and - " + this.state.namearr[32]);
         
     }
 
@@ -124,7 +142,7 @@ class CTBBattle extends Component {
                 <Modalll left={this.leftwin} right={this.rightwin} />        
                 <div class="wrapper">
                     <div class="box a11" id="a11">{this.state.namearr[2]}</div>
-                    <div class="box a12" id="a12">{this.state.namearr[40]}</div>
+                    <div class="box a12" id="a12">{this.state.namearr[32]}</div>
                     <div class="box a21" id="a21"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '1' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('1')}>A21</Button></div>
                     <div class="box a22" id="a22"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A1C === '#' || this.state.A1C === '' || this.state.A2 === '2' || this.state.A2C === '1' || this.state.A2C === '2'} onClick={() => this.setA2('2')}>A22</Button></div>
                     <div class="box a31" id="a31"><Button style={{ height: "100%", width: "100%" }} color="primary" disabled={this.state.A2C === '#' || this.state.A2C === '' || this.state.A3 === '1' || this.state.A3C === '1' || this.state.A3C === '2'} onClick={() => this.setA3('1')}>A31</Button></div>
