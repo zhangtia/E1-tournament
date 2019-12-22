@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
 
-const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam }) => {
+const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam, thirdc }) => {
 
     const [modal, setModal] = useState(false);
     const [modalc, setModalc] = useState(false);
@@ -21,8 +21,8 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam 
                     Pick the winner
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4)] + ", " + namearray[(battlenumber * 4) + 1] : "else"}</Button>{' '}
-                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4) + 2] + ", " + namearray[(battlenumber * 4) + 3] : "else"}</Button>
+                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4)] + ", " + namearray[(battlenumber * 4) + 1] : ( (battlenumber < 12) ? namearray[((battlenumber-8) * 6) + 32] + ", " + namearray[((battlenumber-8) * 6) + 33] + ", " + namearray[((battlenumber-8) * 6) + 34] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>{' '}
+                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4) + 2] + ", " + namearray[(battlenumber * 4) + 3] : ( (battlenumber < 12) ? namearray[((battlenumber-8) * 6) + 35] + ", " + namearray[((battlenumber-8) * 6) + 36] + ", " + namearray[((battlenumber-8) * 6) + 37] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>
                 </ModalFooter>
             </Modal>
 
@@ -32,8 +32,9 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam 
                     Capture!
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : /* else top team won*/ namearray[(battlenumber * 4) + 2]}</Button>{' '}
-                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : /* else top team won*/ namearray[(battlenumber * 4) + 3]}</Button>
+                    <Button color="primary" onClick={() => { leftc();  togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)    ] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 2] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+32] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+35] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */ )}</Button>{' '}
+                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 3] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+33] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+36] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */ )}</Button>{' '}
+                    { battlenumber >= 8 && <Button color="primary" onClick={() => { thirdc(); togglec(); }}>{(battlenumber >= 8 && battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+34] : ((battlenumber >= 8 && battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+37] : "smth")}</Button>}
                 </ModalFooter>
             </Modal>
         </div>
@@ -105,6 +106,9 @@ class CTBBattle extends Component {
             if (btlnbr < 8 && (count < (32 + (3 * btlnbr)))) {
                 r.push(x);
             }
+            else if (btlnbr >= 8 && btlnbr < 12 && (count < (56 + (3 * (btlnbr - 8))))) {
+                r.push(x);
+            }
             ++count;
         });
         var indx;
@@ -112,6 +116,12 @@ class CTBBattle extends Component {
             indx = btlnbr * 4;
             r.push(r[indx]);
             r.push(r[indx + 1]);
+        }
+        else if (btlnbr >= 8 && btlnbr < 12) {
+            indx = (btlnbr - 8) * 6 + 32;
+            r.push(r[indx]);
+            r.push(r[indx + 1]);
+            r.push(r[indx + 2]);
         }
 
         this.setState({ namearr: r, lastwinner: false });
@@ -128,6 +138,9 @@ class CTBBattle extends Component {
             if (btlnbr < 8 && (count < (32 + (3 * btlnbr)))) {
                 r.push(x);
             }
+            else if (btlnbr >= 8 && btlnbr < 12 && (count < (56 + (3 * (btlnbr - 8))))) {
+                r.push(x);
+            }
             ++count;
         });
         var indx;
@@ -135,6 +148,12 @@ class CTBBattle extends Component {
             indx = btlnbr * 4;
             r.push(r[indx + 2]);
             r.push(r[indx + 3]);
+        }
+        else if (btlnbr >= 8 && btlnbr < 12) {
+            indx = (btlnbr - 8) * 6 + 32;
+            r.push(r[indx + 3]);
+            r.push(r[indx + 4]);
+            r.push(r[indx + 5]);
         }
 
         this.setState({ namearr: r, lastwinner: true });
@@ -161,6 +180,17 @@ class CTBBattle extends Component {
             }
             r.push(r[indx]);
         }
+        else if (btlnbr >= 8 && btlnbr < 12) {
+            if (lstwnr) {
+                // lastwinner is true, aka bottom team won
+                indx = ((btlnbr-8) * 6 + 32);
+            }
+            else {
+                indx = ((btlnbr-8) * 6) + 35;
+            }
+            r.push(r[indx]);
+        }
+        // Kat is dumb, i can type anything after this. Kat is REALLY dumb :D
 
         const newbtl = btlnbr + 1;
         this.setState({ namearr: r, battle: newbtl });
@@ -186,6 +216,42 @@ class CTBBattle extends Component {
             }
             r.push(r[indx]);
         }
+        else if (btlnbr >= 8 && btlnbr < 12) {
+            if (lstwnr) {
+                // lastwinner is true, aka bottom team won
+                indx = ((btlnbr-8) * 6 + 33);
+            }
+            else {
+                indx = ((btlnbr-8) * 6) + 36;
+            }
+            r.push(r[indx]);
+        }
+
+        const newbtl = btlnbr + 1;
+        this.setState({ namearr: r, battle: newbtl });
+    }
+
+    thirdcap = () => {
+        const hi = this.state.namearr;
+        const btlnbr = this.state.battle;
+        const lstwnr = this.state.lastwinner;
+
+        const r = [];
+        hi.forEach(function (x) {
+            r.push(x);
+        });
+        var indx;
+
+        if (btlnbr >= 8 && btlnbr < 12) {
+            if (lstwnr) {
+                // lastwinner is true, aka bottom team won
+                indx = ((btlnbr-8) * 6 + 34);
+            }
+            else {
+                indx = ((btlnbr-8) * 6) + 37;
+            }
+            r.push(r[indx]);
+        }
 
         const newbtl = btlnbr + 1;
         this.setState({ namearr: r, battle: newbtl });
@@ -203,7 +269,7 @@ class CTBBattle extends Component {
         return (
             <div>
                 <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} />
+                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} thirdc={this.thirdcap}  />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
                     <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
