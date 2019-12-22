@@ -20,7 +20,7 @@ const Modalll = ({ left, right }) => {
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={() => {left()}}>Team 1</Button>{' '}
-                    <Button color="primary" onClick={() => {right(3)}}>Team 2</Button>
+                    <Button color="primary" onClick={() => {right()}}>Team 2</Button>
                 </ModalFooter>
             </Modal>
         </div>
@@ -57,10 +57,10 @@ class CTBBattle extends Component {
             //.then(data => this.setState({ groups: data }))
             .then(data => {
                 const arr = [];
+                data.sort(this.custom_comp);
                 data.forEach(function (x) {
                     arr.push(x.name);
                 });
-                arr.sort(this.custom_comp);
                 this.setState({ groups: data, namearr: arr });
             });
     }
@@ -117,15 +117,7 @@ class CTBBattle extends Component {
     }*/
 
     render() {
-        const hi = this.state.groups;
-        hi.sort(this.custom_comp);
 
-        const arr = [];
-        hi.forEach(function (x) {
-            arr.push(x.name);
-        });
-
-        //this.createNamearr();
         return (
             <div>
                 <AppNavbar />
