@@ -80,7 +80,8 @@ class CTBBattle extends Component {
         groups: [],
         namearr: [],
         battle: 0,
-        lastwinner: false
+        lastwinner: false,
+        divclr: []
     };
 
 
@@ -90,10 +91,15 @@ class CTBBattle extends Component {
             //.then(data => this.setState({ groups: data }))
             .then(data => {
                 const arr = [];
+                const clr = [];
                 data.sort(this.custom_comp);
                 var i = 0;
                 data.forEach(function (x) {
-                    if (i < 32) { arr.push(x.name); ++i; }
+                    if (i < 32) { 
+                        arr.push(x.name);
+                        clr.push("blue");
+                        ++i;
+                    }
                 });
                 this.setState({ groups: data, namearr: arr });
             });
@@ -118,6 +124,7 @@ class CTBBattle extends Component {
     leftwin = () => {
         const hi = this.state.namearr;
         const btlnbr = this.state.battle;
+        const newclr = this.state.divclr;
 
         const r = [];
         var count = 0;
@@ -156,13 +163,19 @@ class CTBBattle extends Component {
             r.push(r[indx + 3]);
         }
 
-        this.setState({ namearr: r, lastwinner: false });
+        if (btlnbr < 15) {
+            newclr[2*btlnbr] = "green";
+            newclr[2*btlnbr + 1] = "blue";
+        }
+
+        this.setState({ namearr: r, lastwinner: false, divclr: newclr });
 
     }
 
     rightwin = () => {
         const hi = this.state.namearr;
         const btlnbr = this.state.battle;
+        const newclr = this.state.divclr;
 
         const r = [];
         var count = 0;
@@ -201,7 +214,12 @@ class CTBBattle extends Component {
             r.push(r[indx + 7]);
         }
 
-        this.setState({ namearr: r, lastwinner: true });
+        if (btlnbr < 15) {
+            newclr[2*btlnbr + 1] = "green";
+            newclr[2*btlnbr] = "blue";
+        }
+
+        this.setState({ namearr: r, lastwinner: true, divclr: newclr });
 
     }
 
@@ -371,11 +389,11 @@ class CTBBattle extends Component {
             <div>
                 <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} thirdc={this.thirdcap} fourc={this.fourthcap} />
                 <div class="wrapper">
-                    <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
-                    <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
-                    <div class="box a21" id="a21"><p>{this.state.namearr[4]}</p><p>{this.state.namearr[5]}</p></div>
-                    <div class="box a22" id="a22"><p>{this.state.namearr[6]}</p><p>{this.state.namearr[7]}</p></div>
-                    <div class="box a31" id="a31"><p>{this.state.namearr[8]}</p><p>{this.state.namearr[9]}</p></div>
+                    <div class="box a11" id="a11" style={{ backgroundColor: this.state.divclr[0] }}><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
+                    <div class="box a12" id="a12" style={{ backgroundColor: this.state.divclr[1] }}><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
+                    <div class="box a21" id="a21" style={{ backgroundColor: this.state.divclr[2] }}><p>{this.state.namearr[4]}</p><p>{this.state.namearr[5]}</p></div>
+                    <div class="box a22" id="a22" style={{ backgroundColor: this.state.divclr[3] }}><p>{this.state.namearr[6]}</p><p>{this.state.namearr[7]}</p></div>
+                    <div class="box a31" id="a31" style={{ backgroundColor: this.state.divclr[4] }}><p>{this.state.namearr[8]}</p><p>{this.state.namearr[9]}</p></div>
                     <div class="box a32" id="a32"><p>{this.state.namearr[10]}</p><p>{this.state.namearr[11]}</p></div>
                     <div class="box a41" id="a41"><p>{this.state.namearr[12]}</p><p>{this.state.namearr[13]}</p></div>
                     <div class="box a42" id="a42"><p>{this.state.namearr[14]}</p><p>{this.state.namearr[15]}</p></div>
