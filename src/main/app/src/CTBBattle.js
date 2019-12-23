@@ -128,6 +128,9 @@ class CTBBattle extends Component {
             else if (btlnbr >= 8 && btlnbr < 12 && (count < (56 + (4 * (btlnbr - 8))))) {
                 r.push(x);
             }
+            else if (btlnbr >= 12 && btlnbr < 14 && (count < (72 + (5 * (btlnbr - 12))))) {
+                r.push(x);
+            }
             ++count;
         });
         var indx;
@@ -165,6 +168,9 @@ class CTBBattle extends Component {
                 r.push(x);
             }
             else if (btlnbr >= 8 && btlnbr < 12 && (count < (56 + (4 * (btlnbr - 8))))) {
+                r.push(x);
+            }
+            else if (btlnbr >= 12 && btlnbr < 14 && (count < (72 + (5 * (btlnbr - 12))))) {
                 r.push(x);
             }
             ++count;
