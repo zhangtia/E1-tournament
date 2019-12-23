@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { useState } from 'react';
 import AppNavbar from './AppNavbar';
 import './CTB.css';
@@ -12,31 +13,48 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam,
     const toggle = () => setModal(!modal);
     const togglec = () => setModalc(!modalc);
 
+    const [collapsed, setCollapsed] = useState(true);
+
+    const toggleNavbar = () => setCollapsed(!collapsed);
+
     return (
         <div>
-            <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
-            <Modal isOpen={modal} toggle={toggle} className="WINNER">
-                <ModalHeader toggle={toggle}>Battle Winner</ModalHeader>
-                <ModalBody>
-                    Pick the winner
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4)] + ", " + namearray[(battlenumber * 4) + 1] : ( (battlenumber < 12) ? namearray[((battlenumber-8) * 6) + 32] + ", " + namearray[((battlenumber-8) * 6) + 33] + ", " + namearray[((battlenumber-8) * 6) + 34] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>{' '}
-                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4) + 2] + ", " + namearray[(battlenumber * 4) + 3] : ( (battlenumber < 12) ? namearray[((battlenumber-8) * 6) + 35] + ", " + namearray[((battlenumber-8) * 6) + 36] + ", " + namearray[((battlenumber-8) * 6) + 37] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>
-                </ModalFooter>
-            </Modal>
+            <Navbar color="dark" dark expand="md">
+                <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
+                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                <Collapse isOpen={!collapsed} navbar>
+                    <Nav navbar>
+                        <NavItem>
+                            <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
+                            <Modal isOpen={modal} toggle={toggle} className="WINNER">
+                                <ModalHeader toggle={toggle}>Battle Winner</ModalHeader>
+                                <ModalBody>
+                                    Pick the winner
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="primary" onClick={() => { left(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4)] + ", " + namearray[(battlenumber * 4) + 1] : ((battlenumber < 12) ? namearray[((battlenumber - 8) * 6) + 32] + ", " + namearray[((battlenumber - 8) * 6) + 33] + ", " + namearray[((battlenumber - 8) * 6) + 34] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>{' '}
+                                    <Button color="primary" onClick={() => { right(); toggle(); togglec(); }}>{(battlenumber < 8) ? namearray[(battlenumber * 4) + 2] + ", " + namearray[(battlenumber * 4) + 3] : ((battlenumber < 12) ? namearray[((battlenumber - 8) * 6) + 35] + ", " + namearray[((battlenumber - 8) * 6) + 36] + ", " + namearray[((battlenumber - 8) * 6) + 37] : /* battlenbr from 12 onwards */ "12 onwards")}</Button>
+                                </ModalFooter>
+                            </Modal>
 
-            <Modal isOpen={modalc} toggle={togglec} className="CAPTURE">
-                <ModalHeader toggle={togglec}>Capture the Breaker!</ModalHeader>
-                <ModalBody>
-                    Capture!
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={() => { leftc();  togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)    ] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 2] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+32] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+35] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */ )}</Button>{' '}
-                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 3] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+33] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+36] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */ )}</Button>{' '}
-                    { battlenumber >= 8 && <Button color="primary" onClick={() => { thirdc(); togglec(); }}>{(battlenumber >= 8 && battlenumber < 12 && winteam) ? namearray[((battlenumber-8)*6)+34] : ((battlenumber >= 8 && battlenumber < 12 && !winteam) ? namearray[((battlenumber-8)*6)+37] : "smth")}</Button>}
-                </ModalFooter>
-            </Modal>
+                            <Modal isOpen={modalc} toggle={togglec} className="CAPTURE">
+                                <ModalHeader toggle={togglec}>Capture the Breaker!</ModalHeader>
+                                <ModalBody>
+                                    Capture!
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 2] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 32] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 35] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */)}</Button>{' '}
+                                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 3] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 33] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 36] : /* add parantheses for battle > 12 */ "smth"))/* winteam true means bottom won */)}</Button>{' '}
+                                    {battlenumber >= 8 && <Button color="primary" onClick={() => { thirdc(); togglec(); }}>{(battlenumber >= 8 && battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 34] : ((battlenumber >= 8 && battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 37] : "smth")}</Button>}
+                                </ModalFooter>
+                            </Modal>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="https://zhangtia.github.io/page/">My Creator!</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
         </div>
     );
 };
@@ -183,10 +201,10 @@ class CTBBattle extends Component {
         else if (btlnbr >= 8 && btlnbr < 12) {
             if (lstwnr) {
                 // lastwinner is true, aka bottom team won
-                indx = ((btlnbr-8) * 6 + 32);
+                indx = ((btlnbr - 8) * 6 + 32);
             }
             else {
-                indx = ((btlnbr-8) * 6) + 35;
+                indx = ((btlnbr - 8) * 6) + 35;
             }
             r.push(r[indx]);
         }
@@ -219,10 +237,10 @@ class CTBBattle extends Component {
         else if (btlnbr >= 8 && btlnbr < 12) {
             if (lstwnr) {
                 // lastwinner is true, aka bottom team won
-                indx = ((btlnbr-8) * 6 + 33);
+                indx = ((btlnbr - 8) * 6 + 33);
             }
             else {
-                indx = ((btlnbr-8) * 6) + 36;
+                indx = ((btlnbr - 8) * 6) + 36;
             }
             r.push(r[indx]);
         }
@@ -245,10 +263,10 @@ class CTBBattle extends Component {
         if (btlnbr >= 8 && btlnbr < 12) {
             if (lstwnr) {
                 // lastwinner is true, aka bottom team won
-                indx = ((btlnbr-8) * 6 + 34);
+                indx = ((btlnbr - 8) * 6 + 34);
             }
             else {
-                indx = ((btlnbr-8) * 6) + 37;
+                indx = ((btlnbr - 8) * 6) + 37;
             }
             r.push(r[indx]);
         }
@@ -268,8 +286,7 @@ class CTBBattle extends Component {
 
         return (
             <div>
-                <AppNavbar />
-                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} thirdc={this.thirdcap}  />
+                <Modalll left={this.leftwin} right={this.rightwin} leftc={this.leftcap} rightc={this.rightcap} battlenumber={this.state.battle} namearray={this.state.namearr} winteam={this.state.lastwinner} thirdc={this.thirdcap} />
                 <div class="wrapper">
                     <div class="box a11" id="a11"><p>{this.state.namearr[0]}</p><p>{this.state.namearr[1]}</p></div>
                     <div class="box a12" id="a12"><p>{this.state.namearr[2]}</p><p>{this.state.namearr[3]}</p></div>
