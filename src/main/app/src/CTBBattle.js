@@ -19,11 +19,11 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam,
 
     return (
         <div>
-            <Navbar color="dark" dark expand="md">
+            <Navbar color="dark" dark expand="md" fixed>
                 <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="mr-2" />
                 <Collapse isOpen={!collapsed} navbar>
-                    <Nav navbar>
+                    <Nav className="ml-auto" navbar>
                         <NavItem>
                             <Button color="danger" onClick={toggle}>NEXT BATTLE</Button>
                             <Modal isOpen={modal} toggle={toggle} className="WINNER">
