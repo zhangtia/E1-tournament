@@ -43,10 +43,10 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam,
                                     Capture!
                                 </ModalBody>
                                 <ModalFooter>
-                                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 2] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 32] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 35] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 60] : ((battlenumber < 14 && !winteam ? namearray[((battlenumber - 12) * 8) + 56] : "WATCH"))) /* add parantheses for battle > 12 */))/* winteam true means bottom won */)}</Button>{' '}
-                                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 3] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 33] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 36] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 61] : ((battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 57] : "THE"))/* add parantheses for battle > 12 */))/* winteam true means bottom won */)}</Button>{' '}
-                                    {battlenumber >= 8 && <Button color="primary" onClick={() => { thirdc(); togglec(); }}>{(battlenumber >= 8 && battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 34] : ((battlenumber >= 8 && battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 37] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 62] : ((battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 58] : "FINALS")))}</Button>}
-                                    {battlenumber >= 12 && <Button color="primary" onClick={() => { fourc(); togglec(); }}>{(battlenumber >= 12 && battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 63] : ((battlenumber >= 12 && battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 59] : "LIVE!")}</Button>}
+                                    <Button color="primary" onClick={() => { leftc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4)] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 2] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 32] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 35] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 56] : ((battlenumber < 14 && !winteam ? namearray[((battlenumber - 12) * 8) + 60] : "WATCH"))) /* add parantheses for battle > 12 */))/* winteam true means bottom won */)}</Button>{' '}
+                                    <Button color="primary" onClick={() => { rightc(); togglec(); }}>{(battlenumber < 8 && winteam) ? namearray[(battlenumber * 4) + 1] : ((battlenumber < 8 && !winteam) ? namearray[(battlenumber * 4) + 3] : ((battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 33] : ((battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 36] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 57] : ((battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 61] : "THE"))/* add parantheses for battle > 12 */))/* winteam true means bottom won */)}</Button>{' '}
+                                    {battlenumber >= 8 && <Button color="primary" onClick={() => { thirdc(); togglec(); }}>{(battlenumber >= 8 && battlenumber < 12 && winteam) ? namearray[((battlenumber - 8) * 6) + 34] : ((battlenumber >= 8 && battlenumber < 12 && !winteam) ? namearray[((battlenumber - 8) * 6) + 37] : ((battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 58] : ((battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 62] : "FINALS")))}</Button>}
+                                    {battlenumber >= 12 && <Button color="primary" onClick={() => { fourc(); togglec(); }}>{(battlenumber >= 12 && battlenumber < 14 && winteam) ? namearray[((battlenumber - 12) * 8) + 59] : ((battlenumber >= 12 && battlenumber < 14 && !winteam) ? namearray[((battlenumber - 12) * 8) + 63] : "LIVE!")}</Button>}
                                 </ModalFooter>
                             </Modal>
                         </NavItem>
@@ -131,6 +131,9 @@ class CTBBattle extends Component {
             else if (btlnbr >= 12 && btlnbr < 14 && (count < (72 + (5 * (btlnbr - 12))))) {
                 r.push(x);
             }
+            else if (btlnbr >= 14) {
+                r.push(x);
+            }
             ++count;
         });
         var indx;
@@ -171,6 +174,9 @@ class CTBBattle extends Component {
                 r.push(x);
             }
             else if (btlnbr >= 12 && btlnbr < 14 && (count < (72 + (5 * (btlnbr - 12))))) {
+                r.push(x);
+            }
+            else if (btlnbr >= 14) {
                 r.push(x);
             }
             ++count;
