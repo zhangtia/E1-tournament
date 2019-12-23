@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { useState } from 'react';
-import AppNavbar from './AppNavbar';
+import { Link } from 'react-router-dom';
 import './CTB.css';
 
 const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam, thirdc }) => {
