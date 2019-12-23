@@ -19,7 +19,7 @@ const Modalll = ({ left, right, leftc, rightc, battlenumber, namearray, winteam,
 
     return (
         <div>
-            <Navbar color="dark" dark expand="md" fixed>
+            <Navbar color="dark" dark expand="md" fixed="top">
                 <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="mr-2" />
                 <Collapse isOpen={!collapsed} navbar>
