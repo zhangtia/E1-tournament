@@ -1,13 +1,13 @@
 package com.developer.tqz;
 
-import com.developer.tqz.model.Event;
+//import com.developer.tqz.model.Event;
 import com.developer.tqz.model.Group;
 import com.developer.tqz.model.GroupRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.util.Collections;
+//import java.time.Instant;
+//import java.util.Collections;
 import java.util.stream.Stream;
 
 @Component
@@ -27,10 +27,10 @@ class Initializer implements CommandLineRunner {
         );
 
         Group djug = repository.findByName("Vero");
-        Event e = Event.builder().title("TEST")
+        /*Event e = Event.builder().title("TEST")
                 .description("Keeping this for reference")
                 .date(Instant.parse("2018-12-12T18:00:00.000Z"))
-                .build();
+                .build();*/
         //djug.setEvents(Collections.singleton(e));
         djug.setScore(1.7);
         repository.save(djug);
