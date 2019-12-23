@@ -14,14 +14,14 @@ const Example = (props) => {
   }
 
   return (
-    <div>
+    <div style={{padding: '5%'}}>
       <Nav tabs>
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === '1' })}
             onClick={() => { toggle('1'); }}
           >
-            Tab1
+            Capture the Breaker
           </NavLink>
         </NavItem>
         <NavItem>
@@ -29,7 +29,7 @@ const Example = (props) => {
             className={classnames({ active: activeTab === '2' })}
             onClick={() => { toggle('2'); }}
           >
-            Moar Tabs
+            Coming Soon!
           </NavLink>
         </NavItem>
       </Nav>
@@ -37,25 +37,15 @@ const Example = (props) => {
         <TabPane tabId="1">
           <Row>
             <Col sm="12">
-              <h4>Tab 1 Contents</h4>
+              <h4>Add an intro to capture the breaker here</h4>
+              <Button color="green"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="2">
           <Row>
             <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Go somewhere</Button>
-              </Card>
-            </Col>
-            <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Go somewhere</Button>
-              </Card>
+              <h4>Will be adding more tournament formats!</h4>
             </Col>
           </Row>
         </TabPane>
@@ -71,7 +61,6 @@ class Home extends Component {
       <div>
         <AppNavbar />
         <Container fluid>
-          <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
           <Example />
         </Container>
       </div>
