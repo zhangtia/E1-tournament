@@ -165,7 +165,7 @@ class CTBBattle extends Component {
 
         if (btlnbr < 15) {
             newclr[2*btlnbr] = "green";
-            newclr[2*btlnbr + 1] = "blue";
+            newclr[2*btlnbr + 1] = "grey";
         }
 
         this.setState({ namearr: r, lastwinner: false, divclr: newclr });
@@ -216,7 +216,7 @@ class CTBBattle extends Component {
 
         if (btlnbr < 15) {
             newclr[2*btlnbr + 1] = "green";
-            newclr[2*btlnbr] = "blue";
+            newclr[2*btlnbr] = "grey";
         }
 
         this.setState({ namearr: r, lastwinner: true, divclr: newclr });
@@ -394,34 +394,34 @@ class CTBBattle extends Component {
                     <div class="box a21" id="a21" style={{ backgroundColor: this.state.divclr[2] }}><p>{this.state.namearr[4]}</p><p>{this.state.namearr[5]}</p></div>
                     <div class="box a22" id="a22" style={{ backgroundColor: this.state.divclr[3] }}><p>{this.state.namearr[6]}</p><p>{this.state.namearr[7]}</p></div>
                     <div class="box a31" id="a31" style={{ backgroundColor: this.state.divclr[4] }}><p>{this.state.namearr[8]}</p><p>{this.state.namearr[9]}</p></div>
-                    <div class="box a32" id="a32"><p>{this.state.namearr[10]}</p><p>{this.state.namearr[11]}</p></div>
-                    <div class="box a41" id="a41"><p>{this.state.namearr[12]}</p><p>{this.state.namearr[13]}</p></div>
-                    <div class="box a42" id="a42"><p>{this.state.namearr[14]}</p><p>{this.state.namearr[15]}</p></div>
-                    <div class="box a51" id="a51"><p>{this.state.namearr[16]}</p><p>{this.state.namearr[17]}</p></div>
-                    <div class="box a52" id="a52"><p>{this.state.namearr[18]}</p><p>{this.state.namearr[19]}</p></div>
-                    <div class="box a61" id="a61"><p>{this.state.namearr[20]}</p><p>{this.state.namearr[21]}</p></div>
-                    <div class="box a62" id="a62"><p>{this.state.namearr[22]}</p><p>{this.state.namearr[23]}</p></div>
-                    <div class="box a71" id="a71"><p>{this.state.namearr[24]}</p><p>{this.state.namearr[25]}</p></div>
-                    <div class="box a72" id="a72"><p>{this.state.namearr[26]}</p><p>{this.state.namearr[27]}</p></div>
-                    <div class="box a81" id="a81"><p>{this.state.namearr[28]}</p><p>{this.state.namearr[29]}</p></div>
-                    <div class="box a82" id="a82"><p>{this.state.namearr[30]}</p><p>{this.state.namearr[31]}</p></div>
+                    <div class="box a32" id="a32" style={{ backgroundColor: this.state.divclr[5] }}><p>{this.state.namearr[10]}</p><p>{this.state.namearr[11]}</p></div>
+                    <div class="box a41" id="a41" style={{ backgroundColor: this.state.divclr[6] }}><p>{this.state.namearr[12]}</p><p>{this.state.namearr[13]}</p></div>
+                    <div class="box a42" id="a42" style={{ backgroundColor: this.state.divclr[7] }}><p>{this.state.namearr[14]}</p><p>{this.state.namearr[15]}</p></div>
+                    <div class="box a51" id="a51" style={{ backgroundColor: this.state.divclr[8] }}><p>{this.state.namearr[16]}</p><p>{this.state.namearr[17]}</p></div>
+                    <div class="box a52" id="a52" style={{ backgroundColor: this.state.divclr[9] }}><p>{this.state.namearr[18]}</p><p>{this.state.namearr[19]}</p></div>
+                    <div class="box a61" id="a61" style={{ backgroundColor: this.state.divclr[10] }}><p>{this.state.namearr[20]}</p><p>{this.state.namearr[21]}</p></div>
+                    <div class="box a62" id="a62" style={{ backgroundColor: this.state.divclr[11] }}><p>{this.state.namearr[22]}</p><p>{this.state.namearr[23]}</p></div>
+                    <div class="box a71" id="a71" style={{ backgroundColor: this.state.divclr[12] }}><p>{this.state.namearr[24]}</p><p>{this.state.namearr[25]}</p></div>
+                    <div class="box a72" id="a72" style={{ backgroundColor: this.state.divclr[13] }}><p>{this.state.namearr[26]}</p><p>{this.state.namearr[27]}</p></div>
+                    <div class="box a81" id="a81" style={{ backgroundColor: this.state.divclr[14] }}><p>{this.state.namearr[28]}</p><p>{this.state.namearr[29]}</p></div>
+                    <div class="box a82" id="a82" style={{ backgroundColor: this.state.divclr[15] }}><p>{this.state.namearr[30]}</p><p>{this.state.namearr[31]}</p></div>
 
-                    <div class="box b11" id="b11"><p>{this.state.namearr[32]}</p><p>{this.state.namearr[33]}</p><p>{this.state.namearr[34]}</p></div>
-                    <div class="box b12" id="b12"><p>{this.state.namearr[35]}</p><p>{this.state.namearr[36]}</p><p>{this.state.namearr[37]}</p></div>
-                    <div class="box b21" id="b21"><p>{this.state.namearr[38]}</p><p>{this.state.namearr[39]}</p><p>{this.state.namearr[40]}</p></div>
-                    <div class="box b22" id="b22"><p>{this.state.namearr[41]}</p><p>{this.state.namearr[42]}</p><p>{this.state.namearr[43]}</p></div>
-                    <div class="box b31" id="b31"><p>{this.state.namearr[44]}</p><p>{this.state.namearr[45]}</p><p>{this.state.namearr[46]}</p></div>
-                    <div class="box b32" id="b32"><p>{this.state.namearr[47]}</p><p>{this.state.namearr[48]}</p><p>{this.state.namearr[49]}</p></div>
-                    <div class="box b41" id="b41"><p>{this.state.namearr[50]}</p><p>{this.state.namearr[51]}</p><p>{this.state.namearr[52]}</p></div>
-                    <div class="box b42" id="b42"><p>{this.state.namearr[53]}</p><p>{this.state.namearr[54]}</p><p>{this.state.namearr[55]}</p></div>
+                    <div class="box b11" id="b11" style={{ backgroundColor: this.state.divclr[16] }}><p>{this.state.namearr[32]}</p><p>{this.state.namearr[33]}</p><p>{this.state.namearr[34]}</p></div>
+                    <div class="box b12" id="b12" style={{ backgroundColor: this.state.divclr[17] }}><p>{this.state.namearr[35]}</p><p>{this.state.namearr[36]}</p><p>{this.state.namearr[37]}</p></div>
+                    <div class="box b21" id="b21" style={{ backgroundColor: this.state.divclr[18] }}><p>{this.state.namearr[38]}</p><p>{this.state.namearr[39]}</p><p>{this.state.namearr[40]}</p></div>
+                    <div class="box b22" id="b22" style={{ backgroundColor: this.state.divclr[19] }}><p>{this.state.namearr[41]}</p><p>{this.state.namearr[42]}</p><p>{this.state.namearr[43]}</p></div>
+                    <div class="box b31" id="b31" style={{ backgroundColor: this.state.divclr[20] }}><p>{this.state.namearr[44]}</p><p>{this.state.namearr[45]}</p><p>{this.state.namearr[46]}</p></div>
+                    <div class="box b32" id="b32" style={{ backgroundColor: this.state.divclr[21] }}><p>{this.state.namearr[47]}</p><p>{this.state.namearr[48]}</p><p>{this.state.namearr[49]}</p></div>
+                    <div class="box b41" id="b41" style={{ backgroundColor: this.state.divclr[22] }}><p>{this.state.namearr[50]}</p><p>{this.state.namearr[51]}</p><p>{this.state.namearr[52]}</p></div>
+                    <div class="box b42" id="b42" style={{ backgroundColor: this.state.divclr[23] }}><p>{this.state.namearr[53]}</p><p>{this.state.namearr[54]}</p><p>{this.state.namearr[55]}</p></div>
 
-                    <div class="box c11" id="c11"><p>{this.state.namearr[56]}</p><p>{this.state.namearr[57]}</p><p>{this.state.namearr[58]}</p><p>{this.state.namearr[59]}</p></div>
-                    <div class="box c12" id="c12"><p>{this.state.namearr[60]}</p><p>{this.state.namearr[61]}</p><p>{this.state.namearr[62]}</p><p>{this.state.namearr[63]}</p></div>
-                    <div class="box c21" id="c21"><p>{this.state.namearr[64]}</p><p>{this.state.namearr[65]}</p><p>{this.state.namearr[66]}</p><p>{this.state.namearr[67]}</p></div>
-                    <div class="box c22" id="c22"><p>{this.state.namearr[68]}</p><p>{this.state.namearr[69]}</p><p>{this.state.namearr[70]}</p><p>{this.state.namearr[71]}</p></div>
+                    <div class="box c11" id="c11" style={{ backgroundColor: this.state.divclr[24] }}><p>{this.state.namearr[56]}</p><p>{this.state.namearr[57]}</p><p>{this.state.namearr[58]}</p><p>{this.state.namearr[59]}</p></div>
+                    <div class="box c12" id="c12" style={{ backgroundColor: this.state.divclr[25] }}><p>{this.state.namearr[60]}</p><p>{this.state.namearr[61]}</p><p>{this.state.namearr[62]}</p><p>{this.state.namearr[63]}</p></div>
+                    <div class="box c21" id="c21" style={{ backgroundColor: this.state.divclr[26] }}><p>{this.state.namearr[64]}</p><p>{this.state.namearr[65]}</p><p>{this.state.namearr[66]}</p><p>{this.state.namearr[67]}</p></div>
+                    <div class="box c22" id="c22" style={{ backgroundColor: this.state.divclr[27] }}><p>{this.state.namearr[68]}</p><p>{this.state.namearr[69]}</p><p>{this.state.namearr[70]}</p><p>{this.state.namearr[71]}</p></div>
 
-                    <div class="box final1"><p>{this.state.namearr[72]}</p><p>{this.state.namearr[73]}</p><p>{this.state.namearr[74]}</p><p>{this.state.namearr[75]}</p><p>{this.state.namearr[76]}</p></div>
-                    <div class="box final2"><p>{this.state.namearr[77]}</p><p>{this.state.namearr[78]}</p><p>{this.state.namearr[79]}</p><p>{this.state.namearr[80]}</p><p>{this.state.namearr[81]}</p></div>
+                    <div class="box final1" style={{ backgroundColor: this.state.divclr[28] }}><p>{this.state.namearr[72]}</p><p>{this.state.namearr[73]}</p><p>{this.state.namearr[74]}</p><p>{this.state.namearr[75]}</p><p>{this.state.namearr[76]}</p></div>
+                    <div class="box final2" style={{ backgroundColor: this.state.divclr[29] }}><p>{this.state.namearr[77]}</p><p>{this.state.namearr[78]}</p><p>{this.state.namearr[79]}</p><p>{this.state.namearr[80]}</p><p>{this.state.namearr[81]}</p></div>
 
                     <div class="boxfill a1fill" id="a1fill">&nbsp;</div>
                     <div class="boxfill a2fill" id="a2fill">&nbsp;</div>
