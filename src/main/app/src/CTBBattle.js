@@ -101,7 +101,7 @@ class CTBBattle extends Component {
                         ++i;
                     }
                 });
-                this.setState({ groups: data, namearr: arr });
+                this.setState({ groups: data, namearr: arr, divclr: clr });
             });
     }
 
