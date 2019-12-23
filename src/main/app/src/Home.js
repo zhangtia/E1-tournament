@@ -14,7 +14,7 @@ const Example = (props) => {
   }
 
   return (
-    <div style={{padding: '5%'}}>
+    <div style={{paddingLeft: '3%', paddingRight: '3%'}}>
       <Nav tabs>
         <NavItem>
           <NavLink
@@ -38,7 +38,7 @@ const Example = (props) => {
           <Row>
             <Col sm="12">
               <h4>Add an intro to capture the breaker here</h4>
-              <Button color="primary"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
+              <Button color="primary" tag={Link} to={"/groups"}>Start: Capture The Breaker!</Button>
             </Col>
           </Row>
         </TabPane>
