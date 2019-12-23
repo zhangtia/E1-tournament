@@ -38,7 +38,7 @@ const Example = (props) => {
           <Row>
             <Col sm="12">
               <h4>Add an intro to capture the breaker here</h4>
-              <Button color="green"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
+              <Button color="primary"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
             </Col>
           </Row>
         </TabPane>
