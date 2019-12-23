@@ -66,8 +66,6 @@ class Home extends Component {
         <AppNavbar />
         <Container fluid>
           <Button color="link"><Link to="/groups">Start: Capture The Breaker!</Link></Button>
-          <ModalExample fnct={this.fnc} anoth={this.anotha} />
-          <Button onClick={() => alert(this.state.isShow)}>HELLO</Button>
         </Container>
       </div>
     );
