@@ -1,10 +1,14 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 8% 4% 8% 4% 8% 4% 8% 7% 8% 4% 8% 4% 8% 4% 8%;
+    grid-template-columns: 7.5% 3.5% 7.5% 3.5% 7.5% 3.5% 7.5% 6.5% 7.5% 3.5% 7.5% 3.5% 7.5% 3.5% 7.5%;
     grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
     grid-gap: 5px;
     background-color: #fff;
     color: #444;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .box {
