@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
-import AppNavbar from './AppNavbar';
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class GroupList extends Component {
