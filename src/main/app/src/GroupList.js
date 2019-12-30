@@ -87,7 +87,7 @@ class GroupList extends Component {
 
         return (
             <div>
-              <Toast isOpen={show}>
+              <Toast isOpen={show} style={{position: 'absolute', bottom: 0, right: 0}}>
                 <ToastHeader toggle={toggle}>Hint</ToastHeader>
                 <ToastBody>
                     <p>You need at least 32 competitors to proceed!</p>
