@@ -49,6 +49,25 @@ class Prelim extends Component {
         return b.score - a.score;
     }
 
+    Ntoast = () => {
+
+        const [show, setShow] = useState(true);
+
+        const toggle = () => setShow(!show);
+
+        return (
+            <div aria-live="polite" aria-atomic="true" style={{ position: 'relative' }}>
+                <Toast isOpen={show} style={{ position: 'fixed', bottom: 0, right: 0 }}>
+                    <ToastHeader toggle={toggle}>Hint</ToastHeader>
+                    <ToastBody>
+                        <p>This is during judging of preliminaries!</p>
+                        <p>3 judges will give each breaker a score to determine seeding in knockout stages</p>
+                    </ToastBody>
+                </Toast>
+            </div>
+        );
+    }
+
     render() {
         const { groups, isLoading } = this.state;
 
@@ -89,6 +108,7 @@ class Prelim extends Component {
         return (
             <div>
                 <AppNavbar />
+                <this.Ntoast />
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/ctbbattle"}>Start Battles</Button>
