@@ -77,6 +77,25 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
+    Ncustom = () => {
+        return (
+            <Navbar color="dark" dark expand="md">
+                <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="https://zhangtia.github.io/page/">My Creator!</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+        );
+    }
+
 
     render() {
         const { groups, isLoading } = this.state;
@@ -108,11 +127,8 @@ class GroupList extends Component {
 
         return (
             <div>
-                <AppNavbar />
+                <this.Ncustom />
                 <Container fluid>
-                    <div className="float-left">
-                        <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
-                    </div>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
                         <Button color="danger" id="delall">Delete All</Button>
