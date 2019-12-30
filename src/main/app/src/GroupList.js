@@ -78,14 +78,19 @@ class GroupList extends Component {
     }
 
     Ncustom = () => {
+
+        const [collapsed, setCollapsed] = useState(true);
+
+        const toggleNavbar = () => setCollapsed(!collapsed);
+
         return (
             <Navbar color="dark" dark expand="md">
                 <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.isOpen} navbar>
+                <NavbarToggler onClick={toggleNavbar} />
+                <Collapse isOpen={!collapsed} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
+                            <Button color="primary" onClick={() => this.loadcomptrs()} style={{ marginRight : "2.5%" }}>LOAD</Button>
                         </NavItem>
                         <NavItem>
                             <NavLink href="https://zhangtia.github.io/page/">My Creator!</NavLink>
