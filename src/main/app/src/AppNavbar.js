@@ -21,10 +21,7 @@ export default class AppNavbar extends Component {
       <NavbarToggler onClick={this.toggle}/>
       <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink
-              href="https://google.com">Link_to_Google</NavLink>
-          </NavItem>
+          
           <NavItem>
             <NavLink href="https://zhangtia.github.io/page/">My Creator!</NavLink>
           </NavItem>
