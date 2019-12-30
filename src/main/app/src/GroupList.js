@@ -86,7 +86,7 @@ class GroupList extends Component {
         const toggle = () => setShow(!show);
 
         return (
-            <div>
+            <div aria-live="polite" aria-atomic="true" style={{ position: 'relative', minHeight: '100px' }}>
               <Toast isOpen={show} style={{position: 'fixed', bottom: 0, right: 0}}>
                 <ToastHeader toggle={toggle}>Hint</ToastHeader>
                 <ToastBody>
@@ -110,8 +110,8 @@ class GroupList extends Component {
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <Button color="primary" onClick={() => this.loadcomptrs()} style={{ marginRight : "2.5%" }}>LOAD</Button>
+                        <NavItem style={{ marginRight : "2.5%" }}>
+                            <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
                         </NavItem>
                         <NavItem>
                             <NavLink href="https://zhangtia.github.io/page/">My Creator!</NavLink>
