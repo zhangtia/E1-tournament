@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
 class GroupList extends Component {
 
@@ -77,6 +79,25 @@ class GroupList extends Component {
             .then(data => this.setState({ groups: data, isLoading: false }));
     }
 
+    Ntoast = () => {
+
+        const [show, setShow] = useState(true);
+
+        const toggle = () => setShow(!show);
+
+        return (
+            <div>
+              <Toast isOpen={show}>
+                <ToastHeader toggle={toggle}>Hint</ToastHeader>
+                <ToastBody>
+                    <p>You need at least 32 competitors to proceed!</p>
+                    <p>Instead of manually adding, try the 'LOAD' button on the Navbar! It generates 40 random competitors</p>
+                </ToastBody>
+              </Toast>
+            </div>
+          );
+    }
+
     Ncustom = () => {
 
         const [collapsed, setCollapsed] = useState(true);
@@ -133,6 +154,7 @@ class GroupList extends Component {
         return (
             <div>
                 <this.Ncustom />
+                <this.Ntoast />
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
