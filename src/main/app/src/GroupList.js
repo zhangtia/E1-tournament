@@ -86,16 +86,16 @@ class GroupList extends Component {
         const toggle = () => setShow(!show);
 
         return (
-            <div aria-live="polite" aria-atomic="true" style={{ position: 'relative', minHeight: '100px' }}>
-              <Toast isOpen={show} style={{position: 'fixed', bottom: 0, right: 0}}>
-                <ToastHeader toggle={toggle}>Hint</ToastHeader>
-                <ToastBody>
-                    <p>You need at least 32 competitors to proceed!</p>
-                    <p>Instead of manually adding, try the 'LOAD' button on the Navbar! It generates 40 random competitors</p>
-                </ToastBody>
-              </Toast>
+            <div aria-live="polite" aria-atomic="true" style={{ position: 'relative' }}>
+                <Toast isOpen={show} style={{ position: 'fixed', bottom: 0, right: 0 }}>
+                    <ToastHeader toggle={toggle}>Hint</ToastHeader>
+                    <ToastBody>
+                        <p>You need at least 32 competitors to proceed!</p>
+                        <p>Instead of manually adding, try the 'LOAD' button on the Navbar! It generates 40 random competitors</p>
+                    </ToastBody>
+                </Toast>
             </div>
-          );
+        );
     }
 
     Ncustom = () => {
@@ -110,7 +110,7 @@ class GroupList extends Component {
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav className="ml-auto" navbar>
-                        <NavItem style={{ marginRight : "2.5%" }}>
+                        <NavItem>
                             <Button color="primary" onClick={() => this.loadcomptrs()}>LOAD</Button>
                         </NavItem>
                         <NavItem>
@@ -154,7 +154,6 @@ class GroupList extends Component {
         return (
             <div>
                 <this.Ncustom />
-                <this.Ntoast />
                 <Container fluid>
                     <div className="float-right">
                         <Button color="primary" tag={Link} to={"/prelim"}>Start Preliminary</Button>
@@ -170,6 +169,7 @@ class GroupList extends Component {
                     </div>
                     <h3>Competitors</h3>
                     <Table className="mt-4">
+                        <this.Ntoast />
                         <thead>
                             <tr>
                                 <th width="20%">Name</th>
